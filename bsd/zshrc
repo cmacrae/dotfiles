@@ -4,20 +4,13 @@ fpath=($HOME/.zsh/functions $fpath)
 export LC_CTYPE=en_US.UTF-8
 
 # OpenBSD package mirror
-PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
-export PKG_PATH
-
-# bspwm panel fifo
-PANEL_FIFO="/tmp/panel-fifo"
-export PANEL_FIFO
+export PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
 
 # Color wrapper
-PATH="/usr/local/lib/cw:/usr/local/lib/cw:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
-export PATH
+export PATH="/usr/local/lib/cw:/usr/local/lib/cw:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
 
 # Set text editor
-EDITOR=vim
-export EDITOR
+export EDITOR=vim
 
 autoload -U zutil
 autoload -U compinit
