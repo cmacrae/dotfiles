@@ -42,7 +42,7 @@ fi
 cp -rf irssi ~/.irssi
 echo "Please enter your ZNC server's password:"
 read -s PASSWORD
-sed -i .bak "s/XXXX/${PASSWORD}/g" ~/.irssi/config ; rm -f ~/.irssi/config.bak
+gsed -i "s/XXXX/${PASSWORD}/g" ~/.irssi/config
 
 if [ -e ~/.vim/bundle/vundle/README.md ]; then
     echo "Looks like you're updating :) Enjoy!"
