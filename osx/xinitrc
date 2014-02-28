@@ -1,0 +1,15 @@
+# Set the homedir
+export HOME=/Users/phyrne
+
+# Set the wallpaper
+#setbg -i ~/pictures/wallpapers/river-town.jpg  -focus X11 &
+
+# Daemonise URxvt
+urxvtd -q -o -f &
+
+# Set cursor
+xsetroot -cursor_name left_ptr &
+
+# Start bspwm
+sxhkd &
+exec bspwm

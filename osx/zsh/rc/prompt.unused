@@ -1,0 +1,14 @@
+# for have colors
+#autoload -U colors
+#colors
+
+# define your colors here (i hate white background)
+host_color="green" 
+path_color="blue"
+date_color="white"
+
+host="%{$fg[$host_color]%}%n@%m"
+cpath="%B%{$fg[$path_color]%}%/%b"
+end="%{$reset_color%}%% "
+
+PS1="$host $cpath $end"
