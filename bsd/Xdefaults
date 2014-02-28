@@ -26,7 +26,7 @@ URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
 URxvt*keysym.Mod4-c:           perl:clipboard:copy
 URxvt*keysym.Mod4-v:           perl:clipboard:paste
 URxvt*keysym.Mod4-u:           perl:url-select:select_next
-URxvt*url-select.launcher:  firefox
+URxvt*url-select.launcher:  xombrero
 URxvt*url-select.underline: true
 URxvt*iso14755:             False
 
