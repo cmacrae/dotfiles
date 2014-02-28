@@ -1,0 +1,50 @@
+# Functions
+fpath=($HOME/.zsh/functions $fpath)
+
+# OpenBSD package mirror
+PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
+export PKG_PATH
+
+# bspwm panel fifo
+PANEL_FIFO="/tmp/panel-fifo"
+export PANEL_FIFO
+
+# Color wrapper
+PATH="/usr/local/lib/cw:/usr/local/lib/cw:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
+export PATH
+
+# Set text editor
+EDITOR=vim
+export EDITOR
+
+autoload -U zutil
+autoload -U compinit
+autoload -U complist
+autoload -U colors
+
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
+bindkey '^K' kill-whole-line
+bindkey "\e[H" beginning-of-line        # Home (xorg)
+bindkey "\e[1~" beginning-of-line       # Home (console)
+bindkey "\e[4~" end-of-line             # End (console)
+bindkey "\e[F" end-of-line              # End (xorg)
+bindkey "\e[2~" overwrite-mode          # Ins
+bindkey "\e[3~" delete-char             # Delete
+bindkey '\eOH' beginning-of-line
+bindkey '\eOF' end-of-line
+bindkey '^R' history-incremental-search-backward # Fix reverse search in tmux
+
+# Activation
+compinit
+colors
+
+# Resource files
+for file in $HOME/.zsh/rc/*.zsh; do
+	source $file
+done
+
+# Prompts
+export "PROMPT=
+%{$fg[cyan]%}%m %{$fg[red]%}$ %{$reset_color%}"
+export "RPROMPT=%{$fg[red]%}%~%f%b"

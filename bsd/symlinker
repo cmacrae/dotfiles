@@ -1,0 +1,55 @@
+#!/bin/sh
+
+ ###################################
+# Symlink setup for dotfiles on BSD #
+ ###################################
+
+# Check that it's BSD
+if [ `uname -s | grep 'BSD' | wc -l` -lt 1 ]; then
+    echo "This doesn't look like BSD:`uname -s`" ; exit 1
+fi
+
+# Variables
+DIR=~/code/git/dotfiles/bsd                                            		  # dotfiles directory
+CONFDIR=~/code/git/dotfiles/bsd/config                                 		  # config directory
+DOTS="zshrc zsh vimrc vim tmux.conf Xdefaults irssi xombrero.conf ncmpcpp"  # files/folders to symlink
+CONFS="bspwm sxhkd ranger"                                                  # dots for confdir
+
+# cd to the new dotfile directory
+cd $DIR
+
+# Symlink dotfiles
+echo "Symlinking dotfiles"
+
+for file in $DOTS; do
+    if [ -z ~/.$file ] || [ -d ~/.$file ]; then
+      rm -rf ~/.$file
+    fi
+      ln -sf $DIR/$file ~/.$file
+done
+
+for file in $CONFS; do
+  if [ -z ~/.config/$file ] || [ -d ~/.config/$file ]; then
+    rm -rf ~/.config/$file
+  fi
+    ln -sf $CONFDIR/$file ~/.config/$file
+done
+
+# Set irssi password
+if [ -d ~/.irssi ]; then
+  rm -rf ~/.irssi
+fi
+cp -rf irssi ~/.irssi
+echo "Please enter your ZNC server's password:"
+read -s PASSWORD
+sed -i .bak "s/XXXX/${PASSWORD}/g" ~/.irssi/config ; rm -f ~/.irssi/config.bak
+
+if [ -e ~/.vim/bundle/vundle/README.md ]; then
+    echo "Looks like you're updating :) Enjoy!"
+else
+    # Getting Vundle
+    echo "Setting up vim bundles..."
+    git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle ; vim +BundleInstall +qall
+    echo
+    echo "You're all set!"
+f
