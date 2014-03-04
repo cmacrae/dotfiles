@@ -1,22 +1,4 @@
-#servers = (
-#  { 
-#    address = "irc.unixhub.net";
-#    use_ssl = "yes";
-#    port = 6697;
-#    autoconnect = "yes";
-#  }
-#);
-
 servers = (
-  {
-    address = "saveosx.org";
-    chatnet = "unixhub";
-    port = "1025";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-    password = "phyrne/UnixHub:amnot";
-  }
   {
     address = "saveosx.org";
     chatnet = "freenode";
@@ -24,19 +6,17 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-    password = "phyrne/Freenode:amnot";
+    password = "phyrne/Freenode:XXXX";
   }
 )
 
 chatnets = {
-  unixhub = { type = "IRC"; };
   freenode = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#unixhub"; chatnet = "#unixhub"; autojoin = "yes"; },
-  { name = "#openbsd"; chatnet = "#openbsd"; autojoin = "yes"; },
-  { name = "#smartos"; chatnet = "#smartos"; autojoin = "yes"; }
+  { name = "#openbsd"; chatnet = "#freenode"; autojoin = "yes"; },
+  { name = "#smartos"; chatnet = "#freenode"; autojoin = "yes"; }
 );
 
 aliases = {
