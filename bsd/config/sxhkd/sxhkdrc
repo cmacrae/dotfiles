@@ -77,6 +77,28 @@ super + @button{1-3}
     bspc pointer -u
 
 #
+# media keys
+#
+
+# brightness
+F{1,2}
+  xbacklight -{dec,inc} 15
+
+# cmus
+F{7,8,9}
+  cmus-remote -{r,u,n}
+
+# volume
+F10
+  mixerctl -qt outputs.master.mute
+
+F11
+  mixerctl -q outputs.master=-10,-10
+
+F12
+  mixerctl -q outputs.master=+10,+10
+
+#
 # wm independent hotkeys
 #
 
