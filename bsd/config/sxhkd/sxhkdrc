@@ -92,14 +92,11 @@ super + r
 super + d
     xombrero
 
-super + shift + d
-    xombrero -f .camo.conf -s camo
-
 super + e
     urxvtc -e ranger
 
 super + {z,x,c}
-    mpc -q {toggle,prev,next}
+    cmus-remote -{u,r,n}
 
 ctrl + shift + l
     xlock -dpmssuspend 1
