@@ -19,7 +19,7 @@ CONFS="bspwm sxhkd ranger"                                                  # do
 cd $DIR
 
 # Create the ~/.config directory
-if [ -d ~/.config ] ; then
+if [ ! -d ~/.config ] ; then
   mkdir ~/.config
 fi
 
