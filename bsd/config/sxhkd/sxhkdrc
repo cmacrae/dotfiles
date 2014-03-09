@@ -40,9 +40,6 @@ super + m
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 
-super + {_,shift + }c
-    bspc window -f {next,prev}
-
 super + {_,shift + }{comma,period}
     bspc {monitor -f,window -m} {HDMI1,HDMI2}
 
