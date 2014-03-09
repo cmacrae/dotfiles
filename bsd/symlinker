@@ -18,6 +18,11 @@ CONFS="bspwm sxhkd ranger"                                                  # do
 # cd to the new dotfile directory
 cd $DIR
 
+# Create the ~/.config directory
+if [ ! -d ~/.config ] ; then
+  mkdir ~/.config
+fi
+
 # Symlink dotfiles
 echo "Symlinking dotfiles"
 
