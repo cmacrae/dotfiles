@@ -1,45 +1,35 @@
 # Functions
-fpath=($HOME/.zsh/functions $fpath)
+autoload -Uz zutil
+autoload -Uz compinit
+autoload -Uz complist
+autoload -Uz colors
+autoload -Uz vcs_info
 
-export LC_CTYPE=en_US.UTF-8
-
-# OpenBSD package mirror
-export PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
-
-# Color wrapper
-export PATH="/usr/local/lib/cw:/usr/local/lib/cw:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
-
-# Set text editor
-export EDITOR=vim
-
-autoload -U zutil
-autoload -U compinit
-autoload -U complist
-autoload -U colors
-
+# Bindings
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 bindkey '^K' kill-whole-line
-bindkey "\e[H" beginning-of-line        # Home (xorg)
-bindkey "\e[1~" beginning-of-line       # Home (console)
-bindkey "\e[4~" end-of-line             # End (console)
-bindkey "\e[F" end-of-line              # End (xorg)
 bindkey "\e[2~" overwrite-mode          # Ins
 bindkey "\e[3~" delete-char             # Delete
-bindkey '\eOH' beginning-of-line
-bindkey '\eOF' end-of-line
+bindkey '^A'    beginning-of-line
+bindkey '^E'    end-of-line
 bindkey '^R' history-incremental-search-backward # Fix reverse search in tmux
 
 # Activation
 compinit
 colors
 
-# Resource files
+# Source other configs
 for file in $HOME/.zsh/rc/*.zsh; do
-	source $file
+  source $file
 done
 
-# Prompts
+# Prompts (right prompt sourced from vcs.zsh)
 export "PROMPT=
 %{$fg[cyan]%}%m %{$fg[red]%}$ %{$reset_color%}"
-export "RPROMPT=%{$fg[red]%}%~%f%b"
+
+# Environment variables
+PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
+LC_CTYPE=en_US.UTF-8
+PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
+EDITOR=vim
