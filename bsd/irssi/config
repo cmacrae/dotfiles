@@ -1,22 +1,19 @@
 servers = (
   {
-    address = "saveosx.org";
+    address = "irc.cmacr.ae";
     chatnet = "freenode";
     port = "1025";
-    use_ssl = "no";
+    use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
-    password = "phyrne/Freenode:XXXX";
+    password = "cmacrae/freenode:XXXX";
   }
-)
+);
 
-chatnets = {
-  freenode = { type = "IRC"; };
-};
+chatnets = { freenode = { type = "IRC"; }; };
 
 channels = (
-  { name = "#openbsd"; chatnet = "#freenode"; autojoin = "yes"; },
-  { name = "#smartos"; chatnet = "#freenode"; autojoin = "yes"; }
+  { name = "#openbsd"; chatnet = "#freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -184,9 +181,6 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "calum";
-    user_name = "calum";
-    nick = "cmac";
     timestamp_format = "";
     use_proxy = "no";
     proxy_string = "";
