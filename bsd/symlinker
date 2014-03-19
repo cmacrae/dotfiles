@@ -12,7 +12,7 @@ fi
 # Variables
 DIR=~/code/git/dotfiles/bsd                                            		  # dotfiles directory
 CONFDIR=~/code/git/dotfiles/bsd/config                                 		  # config directory
-DOTS="zshrc zsh vimrc vim tmux.conf Xdefaults irssi xombrero.conf ncmpcpp"  # files/folders to symlink
+DOTS="zshrc zsh vimrc vim tmux.conf Xdefaults irssi xombrero.conf"  # files/folders to symlink
 CONFS="bspwm sxhkd ranger"                                                  # dots for confdir
 
 # cd to the new dotfile directory
