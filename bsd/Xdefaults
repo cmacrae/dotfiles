@@ -23,9 +23,9 @@ URxvt*perl-lib:             /usr/local/lib/urxvt/perl
 URxvt*perl-ext-common:      default,clipboard,url-select
 URxvt.clipboard.copycmd:    xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
-URxvt*keysym.Mod4-c:           perl:clipboard:copy
-URxvt*keysym.Mod4-v:           perl:clipboard:paste
-URxvt*keysym.Mod4-u:           perl:url-select:select_next
+URxvt*keysym.Mod1-c:           perl:clipboard:copy
+URxvt*keysym.Mod1-v:           perl:clipboard:paste
+URxvt*keysym.Mod1-u:           perl:url-select:select_next
 URxvt*url-select.launcher:  urlauncher
 URxvt*url-select.underline: true
 URxvt*iso14755:             False
