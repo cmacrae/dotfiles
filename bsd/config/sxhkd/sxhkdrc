@@ -2,78 +2,75 @@
 # bspwm hotkeys
 #
 
-super + alt + Escape
-    bspc quit
-
-super + q
+alt + q
     bspc window -c
 
-super + t
+alt + t
     bspc desktop -l next
 
-super + b
+alt + b
     bspc desktop -B
 
-super + {s,f}
+alt + {s,f}
     bspc window -t {floating,fullscreen}
 
-super + {grave,Tab}
+alt + {grave,Tab}
     bspc {window,desktop} -f last
 
-super + space
+alt + space
     bspc cycle_layout
 
-super + apostrophe
+alt + apostrophe
     bspc window -s last
 
-super + {o,i}
+alt + {o,i}
     bspc control --record-history off; \
     bspc window {older,newer} -f; \
     bspc control --record-history on
 
-super + y
+alt + y
     bspc window -w last.manual
 
-super + m
+alt + m
     bspc window -s biggest
 
-super + {_,shift + }{h,j,k,l}
+alt + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 
-super + {_,shift + }{comma,period}
+alt + {_,shift + }{comma,period}
     bspc {monitor -f,window -m} {HDMI1,HDMI2}
 
-super + bracket{left,right}
+alt + bracket{left,right}
     bspc desktop -f {prev,next}
 
-super + ctrl + {h,j,k,l}
+alt + ctrl + {h,j,k,l}
     bspc window -p {left,down,up,right}
 
-super + ctrl + {_,shift + }space
+alt + ctrl + {_,shift + }space
     bspc {window -p cancel,desktop -c}
 
-super + alt + {h,j,k,l}
+alt + super + {h,j,k,l}
     bspc window -e {left -10,down +10,up -10,right +10}
 
-super + alt + shift + {h,j,k,l}
+alt + super + shift + {h,j,k,l}
     bspc window -e {right -10,up +10,down -10,left +10}
 
-super + ctrl + {1-9}
+alt + ctrl + {1-9}
     bspc window -r 0.{1-9}
 
-super + {_,shift + }{1,2,3,4,5,6}
+alt + {_,shift + }{1,2,3,4,5,6}
     bspc {desktop -f,window -d} {One,Two,Three,Four,Five,Six}
 
 ~button1
     bspc pointer -g focus
 
-super + button{1-3}
+alt + button{1-3}
     bspc pointer -g {move,resize_side,resize_corner}
 
-super + !button{1-3}
+alt + !button{1-3}
     bspc pointer -t %i %i
 
-super + @button{1-3}
+alt + @button{1-3}
     bspc pointer -u
 
 #
@@ -89,37 +86,37 @@ F{7,8,9}
   cmus-remote -{r,u,n}
 
 # volume
-F10
+alt + Escape
   mixerctl -qt outputs.master.mute
 
-F11
+alt + F1
   mixerctl -q outputs.master=-10,-10
 
-F12
+alt + F2
   mixerctl -q outputs.master=+10,+10
 
 #
 # wm independent hotkeys
 #
 
-super + Return
+alt + Return
     urxvtc
 
-super + r
+alt + r
     dmenu_run
 
-super + d
+alt + d
     xombrero
 
-super + e
+alt + e
     urxvtc -e ranger
 
-super + {z,x,c}
-    mpc -q {toggle,prev,next}
+alt + F{9,10,11}
+    cmus-remote -{r,u,n}
 
 ctrl + shift + l
     xlock -dpmssuspend 1
 
 # Reload sxhkd config
-super + Escape
+alt + shift + Escape
     pkill -USR1 -x sxhkd
