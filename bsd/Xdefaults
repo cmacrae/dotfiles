@@ -42,7 +42,7 @@ URxvt*borderless:	true
 URxvt*colorMode: 	on
 URxvt*cursorBlink: 	true
 URxvt*internalBorder:	15
-URxvt*cursorColor: 	#2E3340
+URxvt*cursorColor: 	#9695b5
 URxvt*scrollBar:	false
 
 
