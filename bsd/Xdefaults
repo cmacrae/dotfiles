@@ -75,22 +75,39 @@ dzen2.font: xft:Inconsolata:pixelsize=10
 !!  Colours  !!
 !!===========!!
 
-urxvt.background:   #0D0B0D
-urxvt.foreground:   #F3E7C6
-urxvt.cursorColor:  #F3DCC6
-urxvt.color0:       #1E2F41
-urxvt.color8:       #906B61
-urxvt.color1:       #84252C
-urxvt.color9:       #C92831
-urxvt.color2:       #87A581
-urxvt.color10:      #C0BD86
-urxvt.color3:       #D6C08F
-urxvt.color11:      #F1DEB7
-urxvt.color4:       #143A58
-urxvt.color12:      #1A4C72
-urxvt.color5:       #62162E
-urxvt.color13:      #7C1C3B
-urxvt.color6:       #566F6E
-urxvt.color14:      #659A91
-urxvt.color7:       #B99F8D
-urxvt.color15:      #F3DCC6
+! -- light -- !
+
+URxvt*background: #20202f
+URxvt*foreground: #d2d2d2
+
+! black
+URxvt*color15  : #66666a
+URxvt*color7  : #30303a
+
+! red
+URxvt*color1: #da637e
+URxvt*color9: #f0a3a3
+
+! yellow/orange
+URxvt*color3: #ab93b9
+URxvt*color11: #cbb6d7
+
+! purple
+URxvt*color5: #ac8ac1
+URxvt*color13: #d2bbe4
+
+! blue
+URxvt*color4: #7787a3
+URxvt*color12: #a8c9eb
+
+! green
+URxvt*color2 : #b1b792
+URxvt*color10  : #C7E6B8
+
+! cyan
+URxvt*color6 : #63918b
+URxvt*color14  : #92b5b0
+
+! white
+URxvt*color0 : #b1b8c3
+URxvt*color8  : #cdcdcd
