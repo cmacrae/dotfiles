@@ -3,7 +3,7 @@ set nocompatible
 " Vundle {{{
 
   filetype off
-  set rtp+=~/.vim/bundle/vundle/
+  set rtp+=~/.vim,~/.vim/bundle/vundle
   call vundle#rc()
 
   " Vundle manage Vundle
@@ -24,6 +24,10 @@ set nocompatible
   filetype on
   filetype plugin indent on 
   syntax on
+  " Go fmt compliant tabs
+  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+  " Go fmt upon save
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
   set title
 
@@ -253,12 +257,12 @@ set nocompatible
   " }}}
 " }}}
 " Tabstops {{{
-  set tabstop=2
-  set shiftwidth=2
-  set softtabstop=2
-  set autoindent
-  set smartindent
-  set expandtab
+  "set tabstop=4
+  "set shiftwidth=4
+  "set softtabstop=4
+  "set autoindent
+  "set smartindent
+  "set expandtab
 " }}}
 " Invisibles {{{
   set listchars=tab:>\ ,eol:<
