@@ -117,6 +117,9 @@ alt + F{9,10,11}
 ctrl + shift + l
     xlock -dpmssuspend 1
 
+alt + Insert
+    sh ~/.scripts/scrot.sh
+
 # Reload sxhkd config
 alt + shift + Escape
     pkill -USR1 -x sxhkd
