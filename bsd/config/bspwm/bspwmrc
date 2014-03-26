@@ -25,3 +25,4 @@ bspc config -m HDMI1 top_padding 22
 
 bspc rule -a xombrero desktop=Two
 bspc rule -a MPlayer desktop=Three floating=on focus=on follow=on
+bspc rule -a xmessage floating=on focus=on
