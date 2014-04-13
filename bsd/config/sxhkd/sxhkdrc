@@ -100,7 +100,7 @@ super + Return
     urxvtc
 
 super + r
-    dmenu_run
+    dmenu_run -p '>' -sb '#D26B40' -sf '#F5FFC0' -nb '#1A4C72' -nf '#F5FFC0'
 
 super + d
     xombrero
