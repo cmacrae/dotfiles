@@ -1,12 +1,6 @@
-!=================!
-! Xresources file !
-!=================!
-
 !=========!
 !  URxvt  !
 !=========!
-
-! = Functionality = !
 
 !--------------!
 ! Key Bindings !
@@ -23,9 +17,9 @@ URxvt*perl-lib:             /usr/local/lib/urxvt/perl
 URxvt*perl-ext-common:      default,clipboard,url-select
 URxvt.clipboard.copycmd:    xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
-URxvt*keysym.Mod1-c:           perl:clipboard:copy
-URxvt*keysym.Mod1-v:           perl:clipboard:paste
-URxvt*keysym.Mod1-u:           perl:url-select:select_next
+URxvt*keysym.Mod4-c:           perl:clipboard:copy
+URxvt*keysym.Mod4-v:           perl:clipboard:paste
+URxvt*keysym.Mod4-u:           perl:url-select:select_next
 URxvt*url-select.launcher:  urlauncher
 URxvt*url-select.underline: true
 URxvt*iso14755:             False
@@ -55,7 +49,6 @@ URxvt*fading:		20
 URxvt*font:          xft:Inconsolata:pixelsize=12
 URxvt*boldFont:
 
-
 !--------------!
 ! Xft Settings !
 !--------------!
@@ -68,9 +61,9 @@ Xft.hinting: 		true
 Xft.hintstyle: 	hintslight
 Xft.lcdfilter: 	lcddefault
 
-!!===========!!
-!!  Colours  !!
-!!===========!!
+!----------!
+!  Colours !
+!----------!
 
 ! -- Dandilion -- !
 
@@ -87,12 +80,12 @@ urxvt.color1:       #84252C
 urxvt.color9:       #C92831
 
 ! green
-urxvt.color2:       #87A581
-urxvt.color10:      #C0BD86
+urxvt.color2:       #4AAA89
+urxvt.color10:      #4C7A70
 
 ! yellow
-urxvt.color3:       #D6C08F
-urxvt.color11:      #F1DEB7
+urxvt.color3:	     #EE6754
+urxvt.color11:	     #F69778
 
 ! blue
 urxvt.color4:       #143A58
@@ -109,3 +102,20 @@ urxvt.color14:      #659A91
 ! black
 urxvt.color7:       #B99F8D
 urxvt.color15:      #F3DCC6
+
+!!==========!!
+!! Xmessage !!
+!!==========!!
+
+Xmessage.form.okay.shapeStyle:	rectangle
+Xmessage.form.okay.background:	#777777
+Xmessage.form.okay.foreground:	#143A58
+Xmessage*buttons:		OK
+Xmessage*defaultButton:		OK
+Xmessage*Background:		#F5FFC0
+Xmessage*Foreground:		#143A58
+Xmessage.Scrollbar:		WhenNeeded
+Xmessage.form.message.Scroll:   WhenNeeded
+Xmessage*borderWidth:		0
+Xmessage*Text.borderWidth:	0
+Xmessage*Command.shapeStyle:	rectangle
