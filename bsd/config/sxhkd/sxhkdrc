@@ -107,7 +107,7 @@ super + d
 
 # Hacky, but it fixes a re-draw issue with Acme
 super + e
-    cd code/go ; acme ; bspc rule -a acme fullscreen=true
+    cd ~/code/go/src ; acme ; bspc rule -a acme fullscreen=true
 
 super + F{9,10,11}
     cmus-remote -{r,u,n}
