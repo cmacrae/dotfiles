@@ -105,8 +105,9 @@ super + r
 super + d
     xombrero
 
+# Hacky, but it fixes a re-draw issue with Acme
 super + e
-    acme
+    cd code/go ; acme ; bspc desktop -f "Four"
 
 super + F{9,10,11}
     cmus-remote -{r,u,n}
