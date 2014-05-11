@@ -106,7 +106,7 @@ super + d
     xombrero
 
 super + e
-    urxvtc -e ranger
+    acme
 
 super + F{9,10,11}
     cmus-remote -{r,u,n}
