@@ -2,7 +2,6 @@
 
 bspc monitor -d One Two Three Four
 bspc desktop One -l monocle
-bspc desktop Four -l monocle
 bspc config wm_name       "bspwm"
 bspc config border_width  2
 bspc config window_gap    10
