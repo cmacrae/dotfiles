@@ -15,6 +15,10 @@ bindkey '^A'    beginning-of-line
 bindkey '^E'    end-of-line
 bindkey '^R' history-incremental-search-backward # Fix reverse search in tmux
 
+# Options
+setopt CORRECT ALWAYS_TO_END NOTIFY NOBEEP AUTOLIST AUTOCD
+setopt histignoredups noclobber
+
 # Prompts
 export "PROMPT=
 %{$fg[red]%}$ %{$reset_color%}"
