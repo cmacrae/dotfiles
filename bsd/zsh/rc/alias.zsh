@@ -1,4 +1,3 @@
-alias e="emacs"
 alias ls="colorls -G"
 alias rm="rm -i"
 alias cp="cp -i"

@@ -3,7 +3,10 @@ autoload -Uz zutil
 autoload -Uz compinit
 autoload -Uz complist
 autoload -Uz colors
-autoload -Uz vcs_info
+
+# Activation
+compinit
+colors
 
 # Bindings
 bindkey '\e[A' history-search-backward
@@ -15,23 +18,12 @@ bindkey '^A'    beginning-of-line
 bindkey '^E'    end-of-line
 bindkey '^R' history-incremental-search-backward # Fix reverse search in tmux
 
-# Activation
-compinit
-colors
+# Prompts
+export "PROMPT=
+%{$fg[red]%}$ %{$reset_color%}"
+RPROMPT="%{$fg[red]%}%~%f"
 
 # Source other configs
 for file in $HOME/.zsh/rc/*.zsh; do
   source $file
 done
-
-# Prompts (right prompt sourced from vcs.zsh)
-export "PROMPT=
-%{$fg[red]%}$ %{$reset_color%}"
-
-# Environment variables
-GOROOT=/usr/local/go
-GOPATH=$HOME/code/go
-PLAN9=/usr/local/plan9
-PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:$GOROOT/bin:$GOPATH/bin:/usr/local/plan9/bin"
-PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
-EDITOR=vim
