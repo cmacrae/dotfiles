@@ -109,6 +109,9 @@ super + d
 super + e
     cd ~/code/go/src ; acme ; bspc rule -a acme fullscreen=true
 
+super + shift + e
+    cd ~/code/go/src ; win rc
+
 super + F{9,10,11}
     cmus-remote -{r,u,n}
 
