@@ -1,11 +1,8 @@
 # Functions
 autoload -Uz zutil
-autoload -Uz compinit
-autoload -Uz complist
 autoload -Uz colors
 
 # Activation
-compinit
 colors
 
 # Bindings
