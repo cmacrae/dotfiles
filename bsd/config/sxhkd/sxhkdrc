@@ -105,7 +105,7 @@ super + e
     acme
 
 super + shift + e
-    cd /home/cmacrae/code/go/src; win rc
+    cd /home/cmacrae/code/go/src; win ksh
 
 ctrl + shift + l
     xlock -dpmssuspend 1
