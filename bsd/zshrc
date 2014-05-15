@@ -27,10 +27,3 @@ done
 # Prompts (right prompt sourced from vcs.zsh)
 export "PROMPT=
 %{$fg[cyan]%}%m %{$fg[red]%}$ %{$reset_color%}"
-
-# Environment variables
-GOROOT=/usr/local/go
-GOPATH=$HOME/code/go
-PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:$GOROOT/bin:$GOPATH/bin"
-PKG_PATH=ftp://mirror.ox.ac.uk/pub/OpenBSD/snapshots/packages/amd64/
-EDITOR=vim
