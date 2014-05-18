@@ -10,10 +10,10 @@ if [ `uname -s | grep 'BSD' | wc -l` -lt 1 ]; then
 fi
 
 # Variables
-DIR=~/code/git/dotfiles/bsd                                            		# dotfiles directory
-CONFDIR=~/code/git/dotfiles/bsd/config                                 		# config directory
-DOTS="zshrc zshenv zsh vimrc vim tmux.conf Xdefaults irssi xombrero.conf" 	# files/folders to symlink
-CONFS="bspwm sxhkd"                                                  		# dots for confdir
+DIR=~/code/git/dotfiles/bsd                                     # dotfiles directory
+CONFDIR=~/code/git/dotfiles/bsd/config                          # config directory
+DOTS="zshrc zshenv zsh tmux.conf Xdefaults irssi xombrero.conf"	# files/folders to symlink
+CONFS="bspwm sxhkd"                                             # dots for confdir
 
 # cd to the new dotfile directory
 cd $DIR
