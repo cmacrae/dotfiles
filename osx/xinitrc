@@ -1,5 +1,5 @@
 # Set the homedir
-export HOME=/Users/phyrne
+export HOME=/Users/cmacrae
 
 # Set the wallpaper
 #setbg -i ~/pictures/wallpapers/river-town.jpg  -focus X11 &
