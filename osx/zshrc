@@ -26,4 +26,4 @@ done
 
 # Prompts (right prompt sourced from vcs.zsh)
 export "PROMPT=
-%{$fg[cyan]%}%m %{$fg[red]%}$ %{$reset_color%}"
+%{$fg[blue]%}%m %{$fg[red]%}$ %{$reset_color%}"
