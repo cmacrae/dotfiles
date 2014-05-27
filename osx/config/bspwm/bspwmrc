@@ -36,6 +36,4 @@ bspc config bottom_padding 22
 bspc config top_padding -22
 
 bspc rule -a MPlayer desktop=Three floating=on focus=on follow=on
-
-setbg -i ~/pictures/wallpapers/space-show.png -focus X11 &
-statusbar
+urxvtc 
