@@ -12,7 +12,7 @@ fi
 # Variables
 DIR=~/code/git/dotfiles/osx                                       			    # dotfiles directory
 CONFDIR=~/code/git/dotfiles/osx/config                            		    	# config directory
-DOTS="zshrc zsh vimrc vim xinitrc tmux.conf Xdefaults xombrero.conf"        # files/folders to symlink
+DOTS="zshrc zshenv zsh vimrc vim xinitrc tmux.conf Xdefaults"               # files/folders to symlink
 CONFS="bspwm sxhkd ranger"                                               	  # dots for confdir
 
 # cd to the new dotfile directory
