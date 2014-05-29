@@ -11,13 +11,10 @@ set nocompatible
 
 
   " Git Repos
+  Bundle 'honza/vim-snippets'
+  Bundle 'sirver/ultisnips'
   Bundle 'scrooloose/nerdtree'
-  Bundle 'msanders/snipmate.vim'
-  Bundle 'ervandew/supertab'
-  Bundle 'tpope/vim-surround' 
-  Bundle 'Lokaltog/vim-easymotion'
-  Bundle 'scrooloose/syntastic'       
-
+  Bundle 'fatih/vim-go' 
 " }}}
 " General Settings {{{
 
@@ -41,32 +38,18 @@ set nocompatible
 
   set backspace=2           " make backspace work like most other apps
 
-  set background=dark       " you can also chose light 
+  set background=dark       " you can also choose light 
 
   " Splitting and documents
-  set hidden                " allows to hide files, without the need to save
   set confirm               " confirm quitting unsaved, rather than error
   set equalalways           " makes splits equal size
 
-  set lazyredraw            " don't redraw while executing macros (Much Faster)
+  set lazyredraw            " don't redraw while executing macros
 
   set noshowmode            " don't display mode, aiready in the status line
 
-  let mapleader=","         " allows to make more extensive keybinds 
+  let mapleader=","         " allows you to make more extensive keybinds 
   let maplocalleader=","    " with <leader> eg. 'map <leader>n :new<cr>'
-" }}}
-" Syntax correction - Syntastic {{{
-
-  " Changing Warning sign
-  let g:syntastic_warning_symbol = 'W'
-  let g:syntastic_error_symbol = 'E'
-  let g:syntastic_check_on_open=1
-  let g:syntastic_quiet_messages = {'level': 'warnings'}
-   
-  " Vim Keybindings
-  nmap <leader>k :lnext<CR>
-  nmap <leader>m :lprev<CR>
-
 " }}}
 " General Keybinds {{{
 
@@ -86,7 +69,7 @@ set nocompatible
   nmap <leader>o :winc l<CR>
 " }}}
 " Colours{{{
-    colorscheme nucolors
+    "colorscheme nucolors
 " }}}
 " Status line {{{
   set laststatus=2      " always show statusline
@@ -259,6 +242,7 @@ set nocompatible
   set autoindent
   set smartindent
   set expandtab
+  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4 " Set tabstop to 4 for .go files
 " }}}
 " Invisibles {{{
   set listchars=tab:>\ ,eol:<
@@ -296,9 +280,6 @@ set nocompatible
 
   set ofu=syntaxcomplete#Complete
 " }}}
-" Snipmate {{{
-  imap <tab> <C-r>=TriggerSnippet()<CR>
-" }}}
 " NERDTree {{{
   map <C-n> :NERDTreeToggle<CR>
 
@@ -306,6 +287,12 @@ set nocompatible
   let NERDTreeShowBookmarks = 1
   autocmd vimenter * if !argc() | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" }}}
+" UtliSnip {{{
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsEditSplit="vertical"
 " }}}
 " Wrapping {{{
   set linebreak
