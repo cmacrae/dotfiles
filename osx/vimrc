@@ -70,7 +70,7 @@ set nocompatible
   nmap <leader>o :winc l<CR>
 " }}}
 " Colours{{{
-    "colorscheme nucolors
+    colorscheme blazer
 " }}}
 " Status line {{{
   set laststatus=2      " always show statusline
