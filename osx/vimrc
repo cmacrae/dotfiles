@@ -3,6 +3,7 @@ set nocompatible
 " Vundle {{{
 
   filetype off
+
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 
@@ -287,6 +288,9 @@ set nocompatible
   let NERDTreeShowBookmarks = 1
   autocmd vimenter * if !argc() | NERDTree | endif
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" }}}
+" vim-go {{{
+  "let g:go_disable_autoinstall = 1
 " }}}
 " UtliSnip {{{
   let g:UltiSnipsExpandTrigger="<tab>"
