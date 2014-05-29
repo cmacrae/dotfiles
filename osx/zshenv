@@ -1,4 +1,8 @@
 GOPATH=$HOME/code/go
-PATH="/usr/pkg/bin:/usr/pkg/sbin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$GOPATH/bin"
 EDITOR=vim
 PAGER=less
+
+# Evaluate system PATH
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
