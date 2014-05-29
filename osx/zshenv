@@ -1,4 +1,4 @@
-GOPATH=$HOME/code/go
+export GOPATH=$HOME/code/go
 EDITOR=vim
 PAGER=less
 
