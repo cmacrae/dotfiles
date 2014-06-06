@@ -32,7 +32,6 @@ bspc config adaptative_raise       true
 bspc config apply_shadow_property  true
 bspc config auto_cancel            true
 
-bspc config bottom_padding 22
 bspc config top_padding -22
 
 bspc rule -a MPlayer desktop=Three floating=on focus=on follow=on
