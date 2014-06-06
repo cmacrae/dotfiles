@@ -245,6 +245,7 @@ set nocompatible
   set smartindent
   set expandtab
   au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4 " Set tabstop to 4 for .go files
+  au BufNewFile,BufRead *.pp setlocal noet ts=8 sw=8 sts=8 " Set tabstop to 8 for Puppet files (to adhere to standard format at work)
 " }}}
 " Invisibles {{{
   set listchars=tab:>\ ,eol:<
