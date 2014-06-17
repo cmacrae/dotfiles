@@ -1,41 +1,20 @@
-#servers = (
-#  { 
-#    address = "irc.unixhub.net";
-#    use_ssl = "yes";
-#    port = 6697;
-#    autoconnect = "yes";
-#  }
-#);
-
 servers = (
   {
-    address = "saveosx.org";
-    chatnet = "unixhub";
-    port = "1025";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "yes";
-    password = "phyrne/UnixHub:XXXX";
-  }
-  {
-    address = "saveosx.org";
+    address = "irc.cmacr.ae";
     chatnet = "freenode";
     port = "1025";
-    use_ssl = "no";
+    use_ssl = "yes";
     ssl_verify = "no";
     autoconnect = "yes";
-    password = "phyrne/Freenode:XXXX";
+    password = "cmacrae/freenode:XXXX";
   }
-)
+);
 
-chatnets = {
-  unixhub = { type = "IRC"; };
-  EdgeBSD = { type = "IRC"; };
-};
+chatnets = { freenode = { type = "IRC"; }; };
 
 channels = (
-  { name = "#unixhub"; chatnet = "#unixhub"; autojoin = "yes"; }
-  { name = "#EdgeBSD"; chatnet = "#EdgeBSD"; autojoin = "yes"; }
+  { name = "#openbsd"; chatnet = "#freenode"; autojoin = "yes"; }
+  { name = "#devious"; chatnet = "#freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -203,9 +182,6 @@ statusbar = {
 };
 settings = {
   core = {
-    real_name = "calum";
-    user_name = "calum";
-    nick = "phyrne";
     timestamp_format = "";
     use_proxy = "no";
     proxy_string = "";

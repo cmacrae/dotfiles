@@ -64,7 +64,7 @@ mod2 + r
     dmenu_run -b
 
 mod2 + d
-    open -a "Google Chrome"
+    open -a safari
 
 mod2 + e
     urxvtc -e ranger

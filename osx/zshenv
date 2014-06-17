@@ -1,0 +1,9 @@
+export GOPATH=$HOME/code/go
+export GOWORKSPACE=$GOPATH/src/github.com/cmacrae
+EDITOR=vim
+PAGER=less
+
+# Evaluate system PATH
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi

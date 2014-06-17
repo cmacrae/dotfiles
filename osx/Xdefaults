@@ -25,9 +25,9 @@ URxvt*keysym.M-c:           perl:clipboard:copy
 URxvt*keysym.M-v:           perl:clipboard:paste
 URxvt*clipboard.copycmd:    pbcopy
 URxvt*clipboard.pastecmd:   pbpaste
-!URxvt*keysym.M-u:           perl:url-select:select_next
-!Urxvt-url-select.launcher:  open -a firefox
-!URxvt*url-select.underline: true
+URxvt*keysym.M-u:           perl:url-select:select_next
+Urxvt-url-select.launcher:  open -a safari
+URxvt*url-select.underline: true
 URxvt*iso14755:             False
 
 
@@ -45,8 +45,8 @@ URxvt*scrollBar:	false
 
 URxvt*font: xft:Inconsolata:pixelsize=16
 !URxvt*letterSpace:  -2
-!URxvt*font: -*-menlo-medium-*-*-*-*-*-*-*-*-*-iso8859-16
-URxvt*boldFont: xft:Inconsolata:pixelsize=16
+!URxvt*font: -bitstream-menlo-medium-r-normal--12-*-*-*-*-*-*-1
+!URxvt*boldFont: xft:Inconsolata:pixelsize=16
 
 
 !--------------!
