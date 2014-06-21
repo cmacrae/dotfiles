@@ -1,5 +1,10 @@
+# Remove stale bspwm sockets
+rm -f /tmp/bspwm* 2>&1 > /dev/null
+
 # Set the homedir
 export HOME=/Users/cmacrae
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Set the wallpaper
 #setbg -i ~/pictures/wallpapers/river-town.jpg  -focus X11 &
