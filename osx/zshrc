@@ -27,3 +27,9 @@ done
 # Prompts (right prompt sourced from vcs.zsh)
 export "PROMPT=
 %{$fg[blue]%}%m %{$fg[red]%}$ %{$reset_color%}"
+export "RPROMPT=%{$fg[red]%}%~%f%b"
+
+# Evaluate system PATH
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi

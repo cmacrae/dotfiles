@@ -13,8 +13,9 @@ servers = (
 chatnets = { freenode = { type = "IRC"; }; };
 
 channels = (
-  { name = "#openbsd"; chatnet = "#freenode"; autojoin = "yes"; }
   { name = "#devious"; chatnet = "#freenode"; autojoin = "yes"; }
+  { name = "#pkgsrc"; chatnet = "#freenode"; autojoin = "yes"; }
+  { name = "#metabug"; chatnet = "#freenode"; autojoin = "yes"; }
 );
 
 aliases = {
