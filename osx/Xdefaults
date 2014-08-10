@@ -42,9 +42,10 @@ URxvt*cursorBlink: 	true
 URxvt*internalBorder:	15
 URxvt*cursorColor: 	#F2C2CA
 URxvt*scrollBar:	false
+URxvt*termName: rxvt-256color
 
-URxvt*font: xft:Inconsolata:pixelsize=16
-URxvt*boldFont: xft:Inconsolata:pixelsize=16
+URxvt*font: xft:Inconsolata:pixelsize=14
+URxvt*boldFont: xft:Inconsolata:pixelsize=14
 
 
 !--------------!
