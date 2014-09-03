@@ -10,10 +10,11 @@ if [ `uname -s` != "Darwin" ]; then
 fi
 
 # Variables
-DIR=~/code/git/dotfiles/osx                                       			    # dotfiles directory
-CONFDIR=~/code/git/dotfiles/osx/config                            		    	# config directory
-DOTS="zshrc zshenv zsh vimrc xinitrc tmux.conf Xdefaults"                   # files/folders to symlink
-CONFS="bspwm sxhkd ranger"                                               	  # dots for confdir
+DIR=~/code/git/dotfiles/osx                                   # dotfiles directory
+CONFDIR=~/code/git/dotfiles/osx/config                        # config directory
+DOTS="zshrc zshenv zsh xinitrc tmux.conf Xdefaults"           # files/folders to symlink
+CONFS="bspwm sxhkd ranger"                                    # dots for confdir
+EMACS_DIRS="vendor modules themes"
 
 # cd to the new dotfile directory
 cd $DIR
@@ -29,11 +30,19 @@ for file in $DOTS; do
 done
 
 for file in $CONFS; do
-  if [ -z ~/.config/$file ] || [ -d ~/.config/$file ]; then
-    rm -rf ~/.config/$file
-  fi
+    if [ -z ~/.config/$file ] || [ -d ~/.config/$file ]; then
+	rm -rf ~/.config/$file
+    fi
     ln -sf $CONFDIR/$file ~/.config/$file
 done
+
+# Set up emacs
+for dir in $EMACS_DIRS; do
+    if [ ! -d ~/.emacs.d/$dir ]; then
+	mkdir -p $dir
+    fi
+done
+ln -sf $DIR/init.el ~/.emacs.d/init.el
 
 # Set irssi password
 if [ -d ~/.irssi ]; then
@@ -43,13 +52,4 @@ cp -rf irssi ~/.irssi
 echo "Please enter your ZNC server's password:"
 read -s PASSWORD
 sed -i .bak "s/XXXX/${PASSWORD}/g" ~/.irssi/config ; rm -f ~/.irssi/config.bak
-
-if [ -e ~/.vim/bundle/vundle/README.md ]; then
-    echo "Looks like you're updating :) Enjoy!"
-else
-    # Getting Vundle
-    echo "Setting up vim bundles..."
-    git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle ; vim +BundleInstall +qall
-    echo
-    echo "You're all set!"
-fi  
+echo "You're all set!"
