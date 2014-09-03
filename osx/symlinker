@@ -14,7 +14,7 @@ DIR=~/code/git/dotfiles/osx                                   # dotfiles directo
 CONFDIR=~/code/git/dotfiles/osx/config                        # config directory
 DOTS="zshrc zshenv zsh xinitrc tmux.conf Xdefaults"           # files/folders to symlink
 CONFS="bspwm sxhkd ranger"                                    # dots for confdir
-EMACS_DIRS="vendor modules themes"
+EMACS_DIRS="vendor themes"
 
 # cd to the new dotfile directory
 cd $DIR
@@ -39,10 +39,11 @@ done
 # Set up emacs
 for dir in $EMACS_DIRS; do
     if [ ! -d ~/.emacs.d/$dir ]; then
-	mkdir -p $dir
+	mkdir -p ~/.emacs.d/$dir
     fi
 done
 ln -sf $DIR/init.el ~/.emacs.d/init.el
+rm -rf ~/.emacs.d/modules && ln -sf -F $DIR/modules ~/.emacs.d
 
 # Set irssi password
 if [ -d ~/.irssi ]; then
