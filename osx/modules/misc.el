@@ -1,10 +1,15 @@
 ;; -------------------------------------
 ;; MISC
 ;; -------------------------------------
-(require 'ido)
+
+;; mode settings
 (ido-mode t)
 
 ;; deactivate
 (menu-bar-mode 0)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+;; theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'junio t)

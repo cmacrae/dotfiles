@@ -44,6 +44,10 @@ for dir in $EMACS_DIRS; do
 done
 ln -sf $DIR/init.el ~/.emacs.d/init.el
 rm -rf ~/.emacs.d/modules && ln -sf -F $DIR/modules ~/.emacs.d
+if [ ! -d ~/.emacs.d/themes ]; then
+    mkdir ~/.emacs.d/themes
+    curl -sk -o ~/.emacs.d/themes/junio-theme.el https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/junio-theme.el
+fi
 
 # Set irssi password
 if [ -d ~/.irssi ]; then

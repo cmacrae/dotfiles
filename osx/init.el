@@ -16,7 +16,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(go-mode markdown-mode)
+(defvar my-packages '(go-mode markdown-mode flycheck)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -35,4 +35,5 @@
 
 ;; require packages in modules/
 (mapc 'load (directory-files module-dir nil "^[^#].*el$"))
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (server-start)
