@@ -16,7 +16,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(go-mode markdown-mode flycheck)
+(defvar my-packages '(go-mode markdown-mode flycheck
+		      magit)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
