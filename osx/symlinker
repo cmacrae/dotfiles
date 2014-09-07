@@ -40,6 +40,9 @@ for file in $CONFS; do
 done
 
 # emacs core configs
+if [ ! -d ~/.emacs.d ]; then
+    mkdir ~/.emacs.d
+fi
 ln -sf $DIR/emacs/init.el ~/.emacs.d/init.el
 ln -sf -F $DIR/emacs/modules ~/.emacs.d
 
