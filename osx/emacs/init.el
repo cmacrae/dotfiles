@@ -34,5 +34,6 @@
 
 ;; require packages in modules/
 (mapc 'load (directory-files module-dir nil "^[^#].*el$"))
+(mapc 'load (directory-files vendor-dir nil "^[^#].*el$"))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (server-start)
