@@ -14,7 +14,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(flycheck magit yasnippet
+(defvar my-packages '(erc-hl-nicks flycheck magit yasnippet
 		      go-mode markdown-mode json-mode yaml-mode)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
