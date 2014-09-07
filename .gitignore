@@ -5,6 +5,6 @@ bsd/config/ranger/history
 bsd/config/ranger/options.pyo
 bsd/config/ranger__pycache__
 bsd/vim/bundle/*
-osx/vim/bundle/*
 bsd/config/ranger/tagged
 bsd/ncmpcpp/error.log
+osx/modules/irc.el

@@ -10,24 +10,27 @@ if [ `uname -s` != "Darwin" ]; then
 fi
 
 # Variables
-DIR=~/code/git/dotfiles/osx                                   # dotfiles directory
-CONFDIR=~/code/git/dotfiles/osx/config                        # config directory
-DOTS="zshrc zshenv zsh xinitrc tmux.conf Xdefaults"           # files/folders to symlink
-CONFS="bspwm sxhkd ranger"                                    # dots for confdir
-EMACS_DIRS="vendor themes"
+DIR=~/code/git/dotfiles/osx
+CONFDIR=${DIR}/config
+DOTS="zshrc zshenv zsh xinitrc tmux.conf Xdefaults"
+CONFS="bspwm sxhkd ranger"
 
 # cd to the new dotfile directory
 cd $DIR
 
-# Backup any existing dotfiles and symlink the new ones
+# Symlink dotfiles
 echo "Symlinking dotfiles"
-
 for file in $DOTS; do
     if [ -z ~/.$file ] || [ -d ~/.$file ]; then
       rm -rf ~/.$file
     fi
     ln -sf $DIR/$file ~/.$file
 done
+
+# ensure ~/.config is created, then set-up
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+fi
 
 for file in $CONFS; do
     if [ -z ~/.config/$file ] || [ -d ~/.config/$file ]; then
@@ -36,25 +39,26 @@ for file in $CONFS; do
     ln -sf $CONFDIR/$file ~/.config/$file
 done
 
-# Set up emacs
-for dir in $EMACS_DIRS; do
-    if [ ! -d ~/.emacs.d/$dir ]; then
-	mkdir -p ~/.emacs.d/$dir
-    fi
-done
-ln -sf $DIR/init.el ~/.emacs.d/init.el
-rm -rf ~/.emacs.d/modules && ln -sf -F $DIR/modules ~/.emacs.d
+# emacs core configs
+ln -sf $DIR/emacs/init.el ~/.emacs.d/init.el
+ln -sf -F $DIR/emacs/modules ~/.emacs.d
+
+# emacs packages not available in repos
+if [ ! -d ~/.emacs.d/vendor ]; then
+    mkdir ~/.emacs.d/vendor
+    # znc for erc
+    curl -sk -o ~/.emacs.d/vendor/znc.el http://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
+fi
+
+# make things pretty
 if [ ! -d ~/.emacs.d/themes ]; then
     mkdir ~/.emacs.d/themes
     curl -sk -o ~/.emacs.d/themes/junio-theme.el https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/junio-theme.el
 fi
 
-# Set irssi password
-if [ -d ~/.irssi ]; then
-  rm -rf ~/.irssi
-fi
-cp -rf irssi ~/.irssi
+# Set erc password
+cp -f $DIR/emacs/irc.el ~/.emacs.d/modules/irc.el
 echo "Please enter your ZNC server's password:"
 read -s PASSWORD
-sed -i .bak "s/XXXX/${PASSWORD}/g" ~/.irssi/config ; rm -f ~/.irssi/config.bak
+sed -i .bak "s/XXXX/${PASSWORD}/g" ~/.emacs.d/modules/irc.el ; rm -f ~/.emacs.d/modules/irc.el.bak
 echo "You're all set!"
