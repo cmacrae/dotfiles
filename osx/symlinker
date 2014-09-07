@@ -50,7 +50,7 @@ ln -sf -F $DIR/emacs/modules ~/.emacs.d
 if [ ! -d ~/.emacs.d/vendor ]; then
     mkdir ~/.emacs.d/vendor
     # znc for erc
-    curl -sk -o ~/.emacs.d/vendor/znc.el http://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
+    curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
 fi
 
 # make things pretty
