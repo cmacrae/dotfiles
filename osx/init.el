@@ -5,9 +5,7 @@
 (require 'cl)
 (require 'package)
 
-(add-to-list 'package-archives
-
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
 
@@ -16,8 +14,8 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(go-mode markdown-mode flycheck
-		      magit)
+(defvar my-packages '(flycheck magit yasnippet
+		      go-mode markdown-mode json-mode yaml-mode)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
