@@ -7,4 +7,4 @@ bsd/config/ranger__pycache__
 bsd/vim/bundle/*
 bsd/config/ranger/tagged
 bsd/ncmpcpp/error.log
-osx/modules/irc.el
+osx/emacs/modules/irc.el
