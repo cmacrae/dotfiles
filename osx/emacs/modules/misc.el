@@ -12,3 +12,6 @@
 (menu-bar-mode 0)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+;; key-bindings
+(global-set-key (kbd "C-c m") 'magit-status)
