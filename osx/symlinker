@@ -51,6 +51,8 @@ if [ ! -d ~/.emacs.d/vendor ]; then
     mkdir ~/.emacs.d/vendor
     # znc for erc
     curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
+    # sane-term
+    curl -sk -o ~/.emacs.d/vendor/sane-term.el https://raw.githubusercontent.com/adamrt/sane-term/master/sane-term.el
 fi
 
 # make things pretty
