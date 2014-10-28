@@ -18,3 +18,4 @@
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-x t") 'sane-term)
 (global-set-key (kbd "C-x T") 'sane-term-create)
+(global-set-key (kbd "C-x w") 'elfeed)
