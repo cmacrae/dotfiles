@@ -3,7 +3,6 @@ autoload -Uz zutil
 autoload -Uz compinit
 autoload -Uz complist
 autoload -Uz colors
-autoload -Uz vcs_info
 
 # Bindings
 bindkey '\e[A' history-search-backward
@@ -24,6 +23,7 @@ for file in $HOME/.zsh/rc/*.zsh; do
   source $file
 done
 
-# Prompts (right prompt sourced from vcs.zsh)
+# Prompts
 export "PROMPT=
-%{$fg[cyan]%}%m %{$fg[red]%}$ %{$reset_color%}"
+$ "
+export RPROMPT='%~%f%b'

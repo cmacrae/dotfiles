@@ -12,49 +12,45 @@ fi
 # Variables
 DIR=~/code/git/dotfiles/bsd                                            		  # dotfiles directory
 CONFDIR=~/code/git/dotfiles/bsd/config                                 		  # config directory
-DOTS="zshrc zshenv zsh vimrc vim tmux.conf Xdefaults irssi xombrero.conf ncmpcpp" # files/folders to symlink
-CONFS="bspwm sxhkd ranger"                                                  	  # dots for confdir
+DOTS="zshrc zshenv zsh tmux.conf Xdefaults xombrero.conf" # files/folders to symlink
 
 # cd to the new dotfile directory
 cd $DIR
 
-# Create the ~/.config directory
-if [ ! -d ~/.config ] ; then
-  mkdir ~/.config
-fi
-
 # Symlink dotfiles
 echo "Symlinking dotfiles"
-
 for file in $DOTS; do
     if [ -z ~/.$file ] || [ -d ~/.$file ]; then
       rm -rf ~/.$file
     fi
-      ln -sf $DIR/$file ~/.$file
+    ln -sf $DIR/$file ~/.$file
 done
 
-for file in $CONFS; do
-  if [ -z ~/.config/$file ] || [ -d ~/.config/$file ]; then
-    rm -rf ~/.config/$file
-  fi
-    ln -sf $CONFDIR/$file ~/.config/$file
-done
-
-# Set irssi password
-if [ -d ~/.irssi ]; then
-  rm -rf ~/.irssi
+# emacs core configs
+if [ ! -d ~/.emacs.d ]; then
+    mkdir ~/.emacs.d
 fi
-cp -rf irssi ~/.irssi
+ln -sf $DIR/emacs/init.el ~/.emacs.d/init.el
+ln -sf $DIR/emacs/modules ~/.emacs.d
+
+# emacs packages not available in repos
+if [ ! -d ~/.emacs.d/vendor ]; then
+    mkdir ~/.emacs.d/vendor
+    # znc for erc
+    curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
+    # sane-term
+    curl -sk -o ~/.emacs.d/vendor/sane-term.el https://raw.githubusercontent.com/adamrt/sane-term/master/sane-term.el
+fi
+
+# make things pretty
+if [ ! -d ~/.emacs.d/themes ]; then
+    mkdir ~/.emacs.d/themes
+    curl -sk -o ~/.emacs.d/themes/junio-theme.el https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/junio-theme.el
+fi
+
+# Set erc password
+cp -f $DIR/emacs/irc.el ~/.emacs.d/modules/irc.el
 echo "Please enter your ZNC server's password:"
 read -s PASSWORD
-gsed -i "s/XXXX/${PASSWORD}/g" ~/.irssi/config
-
-if [ -e ~/.vim/bundle/vundle/README.md ]; then
-    echo "Looks like you're updating :) Enjoy!"
-else
-    # Getting Vundle
-    echo "Setting up vim bundles..."
-    git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle ; vim +BundleInstall +qall
-    echo
-    echo "You're all set!"
-fi
+gsed -i "s/XXXX/${PASSWORD}/g" ~/.emacs.d/modules/irc.el
+echo "You're all set!"
