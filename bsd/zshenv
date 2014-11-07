@@ -1,5 +1,6 @@
 GOROOT=/usr/local/go
 GOPATH=$HOME/code/go
+export GOWORKSPACE=$GOPATH/src/github.com/cmacrae
 PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin:$GOROOT/bin:$GOPATH/bin"
 PKG_PATH=ftp://mirror.exonetric.net/pub/OpenBSD/snapshots/packages/amd64/
 EDITOR=mg

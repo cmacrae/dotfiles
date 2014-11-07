@@ -6,9 +6,14 @@
 (ido-mode t)
 (setq sane-term-shell-command "/usr/local/bin/zsh")
 
+; set browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "xomby")
+
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-   
+
+; disable   
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
