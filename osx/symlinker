@@ -55,12 +55,6 @@ if [ ! -d ~/.emacs.d/vendor ]; then
     curl -sk -o ~/.emacs.d/vendor/sane-term.el https://raw.githubusercontent.com/adamrt/sane-term/master/sane-term.el
 fi
 
-# make things pretty
-if [ ! -d ~/.emacs.d/themes ]; then
-    mkdir ~/.emacs.d/themes
-    curl -sk -o ~/.emacs.d/themes/junio-theme.el https://raw.githubusercontent.com/owainlewis/emacs-color-themes/master/themes/junio-theme.el
-fi
-
 # Set erc password
 cp -f $DIR/emacs/irc.el ~/.emacs.d/modules/irc.el
 echo "Please enter your ZNC server's password:"
