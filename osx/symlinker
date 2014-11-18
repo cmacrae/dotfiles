@@ -12,7 +12,7 @@ fi
 # Variables
 DIR=~/code/git/dotfiles/osx
 CONFDIR=${DIR}/config
-DOTS="zshrc zshenv zsh xinitrc tmux.conf Xdefaults"
+DOTS="zshrc zshenv zsh tmux.conf Xdefaults"
 CONFS="bspwm sxhkd ranger"
 
 # cd to the new dotfile directory
