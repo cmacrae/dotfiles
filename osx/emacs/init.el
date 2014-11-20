@@ -15,7 +15,8 @@
 
 (defvar my-packages '(erc-hl-nicks flycheck magit yasnippet
 		      go-mode markdown-mode json-mode yaml-mode
-		      projectile puppet-mode elfeed moe-theme)
+		      projectile puppet-mode elfeed moe-theme
+		      haskell-mode)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
