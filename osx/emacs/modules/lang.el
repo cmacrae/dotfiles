@@ -1,3 +1,6 @@
+;; haskell-mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
 ;; go-mode
 (require 'go-mode)
 (setq exec-path (cons "/usr/local/go/bin" exec-path))
