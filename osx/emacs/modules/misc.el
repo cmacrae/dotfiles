@@ -5,8 +5,6 @@
 ;; mode settings
 (ido-mode t)
 (setq sane-term-shell-command "/bin/zsh")
-(require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
 
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
