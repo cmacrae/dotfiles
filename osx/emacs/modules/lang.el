@@ -1,5 +1,5 @@
 ;; haskell-mode
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 (let ((my-cabal-path (expand-file-name "~/library/Haskell/bin")))
