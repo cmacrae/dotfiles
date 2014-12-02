@@ -8,6 +8,7 @@
 
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
 
 ;; deactivate
 (menu-bar-mode 0)
