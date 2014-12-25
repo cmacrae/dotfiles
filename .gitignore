@@ -1,10 +1,1 @@
-bsd/config/ranger/apps.pyo
-bsd/config/ranger/bookmarks
-bsd/config/ranger/commands.pyo
-bsd/config/ranger/history
-bsd/config/ranger/options.pyo
-bsd/config/ranger__pycache__
-bsd/vim/bundle/*
-bsd/config/ranger/tagged
-bsd/ncmpcpp/error.log
-osx/emacs/modules/irc.el
+emacs/modules/irc.el

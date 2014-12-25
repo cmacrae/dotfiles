@@ -1,24 +1,12 @@
 #!/bin/sh
 
- ####################################
-# Symlink setup for dotfiles on OS X #
- ####################################
-
-# Check that it's OS X
-if [ `uname -s` != "Darwin" ]; then
-  echo "This doesn't look like OS X: `uname -s`" ; exit
-fi
-
-# Variables
-DIR=~/code/git/dotfiles/osx
+DIR=~/code/git/dotfiles
 CONFDIR=${DIR}/config
-DOTS="zshrc zshenv zsh tmux.conf Xdefaults"
-CONFS="bspwm sxhkd ranger"
+DOTS="mg tmux.conf Xdefaults zsh zshenv zshrc"
+CONFS="bspwm sxhkd"
 
-# cd to the new dotfile directory
+
 cd $DIR
-
-# Symlink dotfiles
 echo "Symlinking dotfiles"
 for file in $DOTS; do
     if [ -z ~/.$file ] || [ -d ~/.$file ]; then
@@ -27,7 +15,6 @@ for file in $DOTS; do
     ln -sf $DIR/$file ~/.$file
 done
 
-# ensure ~/.config is created, then set-up
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
@@ -39,7 +26,6 @@ for file in $CONFS; do
     ln -sf $CONFDIR/$file ~/.config/$file
 done
 
-# emacs core configs
 if [ ! -d ~/.emacs.d ]; then
     mkdir ~/.emacs.d
 fi
