@@ -4,6 +4,7 @@
 
 ;; mode settings
 (ido-mode t)
+(projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 
 ;; file associations
