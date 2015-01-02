@@ -11,7 +11,7 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
 	 "* TODO %^{Brief Description} %^g\n%?\tAdded: %U")
-	("r" "ToRead" entry (file+headline "~/org/gtd.org" "Projects")
+	("r" "ToRead" entry (file+headline "~/org/gtd.org" "Tasks")
 	 "* TOREAD %^{Title} %^g\n%?\tLink: %c")
 	("p" "Project" entry (file+headline "~/org/gtd.org" "Projects")
 	 "* %^{Brief Description} %^g\n%?\tAdded: %U")
