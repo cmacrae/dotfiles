@@ -1,0 +1,50 @@
+[general]
+ui = TTY.TTYUI
+accounts = GMail
+pythonfile=~/.offlineimap.py
+fsync = False
+
+[Account GMail]
+localrepository = GMail-Local
+remoterepository = GMail-Remote
+status_backend = sqlite
+
+[Repository GMail-Local]
+type = Maildir
+localfolders = ~/.mail/gmail
+nametrans = lambda folder: {'drafts':  	'Drafts',
+                            'sent':    	'[Google Mail]/Sent Mail',
+                            'trash':   	'[Google Mail]/Bin',
+                            'archive': 	'[Google Mail]/All Mail',
+			    'personal':	'Personal',
+			    'linkedin':	'Personal/LinkedIn',
+			    'shopping': 'Personal/Shopping',
+			    'amazon':	'Personal/Shopping/Amazon',
+			    'ebay':	'Personal/Shopping/Ebay',
+			    'paypal':	'Personal/Shopping/PayPal',
+			    'twitter':	'Personal/Twitter',
+                            }.get(folder, folder)
+
+[Repository GMail-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = calum0macrae@gmail.com
+remotepasseval = get_keychain_pass(account="calum0macrae@gmail.com", server="imap.gmail.com")
+realdelete = no
+ssl = yes
+nametrans = lambda folder: {'Drafts':			'drafts',
+                            '[Google Mail]/Sent Mail': 	'sent',
+                            '[Google Mail]/Bin':	'trash',
+                            '[Google Mail]/All Mail':	'archive',
+			    'Personal':	       		'personal',
+			    'Personal/LinkedIn':	'linkedin',
+			    'Personal/Shopping':	'shopping',
+			    'Personal/Shopping/Amazon': 'amazon',
+			    'Personal/Shopping/Ebay':  	'ebay',
+			    'Personal/Shopping/PayPal': 'paypal',
+			    'Personal/Twitter':		'twitter',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Google Mail]/Bin',
+                                             '[Google Mail]/Important',
+                                             '[Google Mail]/Spam',
+                                             ]

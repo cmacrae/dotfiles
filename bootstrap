@@ -1,0 +1,89 @@
+#!/bin/sh
+
+DIR=~/code/git/dotfiles
+BASE_PKGS="git-base gnutls gsed ispell ispell-british mg nmap offlineimap tmux w3m-img"
+
+save_osx() {
+    while :
+    do
+	read -r -p "Quickstrap Save OS X? [y/n] " ANSWER
+	case $ANSWER in
+	    [yY][eE][sS]|[yY])
+		export SOSX=true
+		break
+		;;
+	    [nN][oO]|[nN])
+		exit 0
+		break
+		;;
+	    *)
+		echo "Please answer yes or no..."
+	esac
+    done
+
+    if [ ! -z $SOSX ]; then
+	curl -o /tmp/master.zip https://codeload.github.com/cmacrae/saveosx/zip/master
+	unzip -d /tmp/ /tmp/master.zip && cd /tmp/saveosx-master/scripts
+	bash quickstrap
+    fi
+}
+
+pkgs(){
+    sudo pkgin -y in $BASE_PKGS
+}
+
+
+symlinker() {
+    echo "Symlinking dotfiles"
+    shopt -s nullglob
+    for dot in $(ls dots) ; do
+	if [ -z ~/.$dot ] || [ -d ~/.$dot ]; then
+	    rm -rf ~/.$dot
+	fi
+	ln -sf $DIR/dots/$dot ~/.$dot
+    done
+
+    if [ ! -d ~/.emacs.d ]; then
+	mkdir ~/.emacs.d
+    fi
+    ln -sf $DIR/emacs/init.el ~/.emacs.d/init.el
+    ln -sf -F $DIR/emacs/modules ~/.emacs.d
+
+    # emacs packages not available in repos
+    if [ ! -d ~/.emacs.d/vendor ]; then
+	mkdir ~/.emacs.d/vendor
+	# znc for erc
+	curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
+	# sane-term
+	curl -sk -o ~/.emacs.d/vendor/sane-term.el https://raw.githubusercontent.com/adamrt/sane-term/master/sane-term.el
+    fi
+
+    if [ ! -d ~/org ]; then
+	mkdir ~/org
+    fi
+
+    # Set erc password
+    cp -f $DIR/emacs/irc.el ~/.emacs.d/modules/irc.el
+    echo "Please enter your ZNC server's password:"
+    read -s PASSWORD
+    /usr/pkg/bin/gsed -i "s/XXXX/${PASSWORD}/g" ~/.emacs.d/modules/irc.el
+    echo "You're all set!"
+}
+
+main() {
+    cd $DIR
+    if [ ! -d /usr/pkg ]; then
+	save_osx
+	pkgs
+    fi
+
+    if [ -f /usr/pkg/bin/git ] && [ -f /usr/bin/git ]; then
+	echo "Removing git dummy binaries"
+	sudo rm -rf /usr/bin/git*
+    fi
+
+    symlinker
+}
+
+main
+exit $?
