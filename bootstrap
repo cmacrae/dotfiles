@@ -35,7 +35,6 @@ pkgs(){
 
 symlinker() {
     echo "Symlinking dotfiles"
-    shopt -s nullglob
     for dot in $(ls dots) ; do
 	if [ -z ~/.$dot ] || [ -d ~/.$dot ]; then
 	    rm -rf ~/.$dot
