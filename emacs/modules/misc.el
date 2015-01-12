@@ -7,6 +7,7 @@
 (projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -26,6 +27,7 @@
 (global-set-key (kbd "C-x t") 'sane-term)
 (global-set-key (kbd "C-x T") 'sane-term-create)
 (global-set-key (kbd "C-x w") 'elfeed)
+(global-set-key (kbd "M-p") 'ace-window)
 
 ;; custom functions
 (defun sort-words (reverse beg end)
