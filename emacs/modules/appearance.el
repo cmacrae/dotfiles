@@ -3,12 +3,14 @@
 ;; -------------------------------------
 
 ;; hide stuff
-
 (when window-system
   (tooltip-mode -1)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1))
+
+;; clock
+(display-time-mode 1)
 
 ;; moe-theme
 (require 'moe-theme)
