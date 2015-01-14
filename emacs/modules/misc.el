@@ -28,6 +28,7 @@
 ;; key-bindings
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-c s") 'sauron-toggle-hide-show)
+(global-set-key (kbd "C-c t") 'sauron-clear)
 (global-set-key (kbd "C-x t") 'sane-term)
 (global-set-key (kbd "C-x T") 'sane-term-create)
 (global-set-key (kbd "C-x w") 'elfeed)
