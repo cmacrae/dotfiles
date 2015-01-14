@@ -5,6 +5,7 @@
 ;; settings
 (ido-mode t)
 (winner-mode 1)
+(elscreen-start)
 (projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
@@ -12,6 +13,7 @@
 (setq sauron-watch-nicks "cmacrae")
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
+(setq elscreen-display-tab nil)
 
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
