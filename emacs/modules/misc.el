@@ -8,6 +8,9 @@
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setq sauron-watch-nicks "cmacrae")
+(setq sauron-separate-frame nil)
+(setq sauron-hide-mode-line t)
 
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -24,6 +27,7 @@
 
 ;; key-bindings
 (global-set-key (kbd "C-c m") 'magit-status)
+(global-set-key (kbd "C-c s") 'sauron-toggle-hide-show)
 (global-set-key (kbd "C-x t") 'sane-term)
 (global-set-key (kbd "C-x T") 'sane-term-create)
 (global-set-key (kbd "C-x w") 'elfeed)
