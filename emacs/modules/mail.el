@@ -17,6 +17,7 @@
 (setq mu4e-attachment-dir  "~/downloads")
 (setq mu4e-sent-messages-behavior 'delete)
 (setq message-kill-buffer-on-exit t)
+(setq mu4e-hide-index-messages t)
 (add-hook 'mu4e-compose-mode-hook 'flyspell-mode)
 (setq
  user-mail-address "calum0macrae@gmail.com"
