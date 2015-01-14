@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-x T") 'sane-term-create)
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "M-p") 'ace-window)
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
 ;; custom functions
 (defun sort-words (reverse beg end)
