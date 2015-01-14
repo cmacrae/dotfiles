@@ -4,6 +4,7 @@
 
 ;; settings
 (ido-mode t)
+(winner-mode 1)
 (projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
@@ -29,6 +30,8 @@
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-c s") 'sauron-toggle-hide-show)
 (global-set-key (kbd "C-c t") 'sauron-clear)
+(global-set-key (kbd "C-c u") 'winner-undo)
+(global-set-key (kbd "C-c r") 'winner-redo)
 (global-set-key (kbd "C-x t") 'sane-term)
 (global-set-key (kbd "C-x T") 'sane-term-create)
 (global-set-key (kbd "C-x w") 'elfeed)
