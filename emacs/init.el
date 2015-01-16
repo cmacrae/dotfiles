@@ -17,7 +17,8 @@
 		      go-mode markdown-mode json-mode yaml-mode
 		      projectile puppet-mode elfeed moe-theme
 		      haskell-mode shm rainbow-delimiters
-		      jinja2-mode ace-window sauron elscreen)
+		      jinja2-mode ace-window sauron elscreen
+		      multiple-cursors)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

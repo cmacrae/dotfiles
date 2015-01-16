@@ -15,6 +15,13 @@
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
 
+;; multiple-cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
@@ -28,7 +35,7 @@
 (setq auto-save-default nil)
 (setq inhibit-startup-message t)
 
-;; key-bindings
+;; misc key-bindings
 (global-set-key (kbd "C-c m") 'magit-status)
 (global-set-key (kbd "C-c s") 'sauron-toggle-hide-show)
 (global-set-key (kbd "C-c t") 'sauron-clear)
