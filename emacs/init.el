@@ -18,7 +18,7 @@
 		      projectile puppet-mode elfeed moe-theme
 		      haskell-mode shm rainbow-delimiters
 		      jinja2-mode ace-window sauron elscreen
-		      multiple-cursors)
+		      multiple-cursors org-page)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))

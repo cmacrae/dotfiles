@@ -1,6 +1,8 @@
 ;; -------------------------------------
 ;; ORG-MODE
 ;; -------------------------------------
+
+;; general
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
@@ -16,3 +18,13 @@
 	 "* %^{Brief Description} %^g\n%?\tAdded: %U")
 	("m" "Maybe" entry (file+headline "~/org/gtd.org" "Maybe/Some Day")
 	 "* %^{Brief Description} %^g\n%?\tAdded: %U")))
+
+;; org-page
+(require 'org-page)
+(setq op/repository-directory "~/code/git/blog")
+(setq op/theme 'mdo)
+(setq op/site-domain "http://cmacr.ae")
+(setq op/site-main-title "Calum MacRae")
+(setq op/site-sub-title "/home/cmacrae")
+(setq op/personal-disqus-shortname "cmacrae")
+(setq op/personal-github-link "https://github.com/cmacrae")
