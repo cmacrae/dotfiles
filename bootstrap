@@ -32,6 +32,38 @@ pkgs(){
     sudo pkgin -y in $BASE_PKGS
 }
 
+osx_keybindings(){
+    if [ ! -d ~/library/KeyBindings ]; then
+	mkdir ~/library/KeyBindings
+    fi
+
+    cat > ~/library/KeyBindings/DefaultKeyBinding.dict <<EOF
+{
+  "^ " = setMark:;
+  "^/" = undo:;
+  "^u" = deleteToBeginningOfParagraph:;
+  "^w" = deleteToMark:;
+  "^x" = {
+    "^x" = swapWithMark:;
+    "^m" = selectToMark:;
+  };
+  "^V" = pageDownAndModifySelection:;
+  "~@" = selectWord:;
+  "~b" = moveWordBackward:;
+  "~c" = (capitalizeWord:, moveForward:, moveForward:);
+  "~d" = deleteWordForward:;
+  "~f" = moveWordForward:;
+  "~l" = (lowercaseWord:, moveForward:, moveForward:);
+  "~u" = (uppercaseWord:, moveForward:, moveForward:);
+  "~v" = pageUp:;
+  "~w" = (deleteToMark:, setMark:, yank:, swapWithMark:);
+  "~B" = moveWordBackwardAndModifySelection:;
+  "~F" = moveWordForwardAndModifySelection:;
+  "~V" = pageUpAndModifySelection:;
+}
+EOF
+    echo "OS X keybindings applied"
+}
 
 symlinker() {
     echo "Symlinking dotfiles"
@@ -79,6 +111,10 @@ main() {
     if [ -f /usr/pkg/bin/git ] && [ -f /usr/bin/git ]; then
 	echo "Removing git dummy binaries"
 	sudo rm -rf /usr/bin/git*
+    fi
+
+    if [ ! -f ~/library/KeyBindings/DefaultKeyBinding.dict ]; then
+	osx_keybindings
     fi
 
     symlinker
