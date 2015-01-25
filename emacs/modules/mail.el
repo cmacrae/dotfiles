@@ -28,7 +28,6 @@
   "Calum MacRae\n"))
 
 ;; smtpmail
-(require 'auth-source)
 (require 'smtpmail)
 (require 'starttls)
 (setq message-send-mail-function 'smtpmail-send-it
