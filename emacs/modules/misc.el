@@ -10,7 +10,7 @@
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-(setq sauron-watch-nicks "cmacrae")
+(setq sauron-watch-nicks '("cmacrae"))
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
