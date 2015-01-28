@@ -3,7 +3,9 @@ export GOWORKSPACE=$GOPATH/src/github.com/cmacrae
 export HOME=/Users/cmacrae
 EDITOR=emacs
 PAGER=less
-CVSROOT=~/code/cvs
+CVSROOT=~/code/pkgsrc
+CVSEDITOR=emacs
+CVS_RSH=ssh
 
 # Evaluate system PATH
 if [ -x /usr/libexec/path_helper ]; then
