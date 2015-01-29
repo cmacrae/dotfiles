@@ -14,6 +14,8 @@
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
+(setq calendar-week-start-day 1)
+(setq diary-file "~/org/diary")
 
 ;; multiple-cursors
 (require 'multiple-cursors)
