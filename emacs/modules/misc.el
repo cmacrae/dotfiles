@@ -14,8 +14,12 @@
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
+
+;; calendar/diary
 (setq calendar-week-start-day 1)
+(setq calendar-date-style 'european)
 (setq diary-file "~/org/diary")
+(add-hook 'diary-list-entries-hook 'diary-sort-entries t)
 
 ;; multiple-cursors
 (require 'multiple-cursors)
