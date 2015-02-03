@@ -14,7 +14,7 @@
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
-
+(set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
 ;; calendar/diary
 (setq calendar-week-start-day 1)
 (setq diary-file "~/org/diary")
