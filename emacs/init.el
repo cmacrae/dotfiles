@@ -18,7 +18,8 @@
 		      projectile puppet-mode elfeed moe-theme
 		      haskell-mode shm rainbow-delimiters
 		      jinja2-mode ace-window sauron elscreen
-		      multiple-cursors org-page)
+		      multiple-cursors org-page helm helm-projectile
+		      openwith)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
