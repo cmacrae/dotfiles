@@ -15,6 +15,12 @@
 (setq sauron-hide-mode-line t)
 (setq elscreen-display-tab nil)
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+
+;; neotree
+(require 'neotree)
+(global-set-key [f5] 'neotree-toggle)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+
 ;; calendar/diary
 (setq calendar-week-start-day 1)
 (setq diary-file "~/org/diary")
