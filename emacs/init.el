@@ -19,7 +19,7 @@
 		      haskell-mode shm rainbow-delimiters
 		      jinja2-mode ace-window sauron elscreen
 		      multiple-cursors org-page helm helm-projectile
-		      openwith)
+		      openwith neotree)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
