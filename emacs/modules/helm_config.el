@@ -19,6 +19,7 @@
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 
+(setq helm-display-header-line nil)
 (setq helm-scroll-amount                    8
       helm-split-window-in-side-p           t
       helm-move-to-line-cycle-in-source     t
