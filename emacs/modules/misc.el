@@ -30,6 +30,12 @@
 ;; file associations
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
+(require 'openwith)
+(openwith-mode t)
+(setq openwith-associations '(("\\.avi\\'" "/Applications/mpv.app/Contents/MacOS/mpv" (file))
+			      ("\\.mkv\\'" "/Applications/mpv.app/Contents/MacOS/mpv" (file))
+			      ("\\.mp4\\'" "/Applications/mpv.app/Contents/MacOS/mpv" (file))
+			      ("\\.pdf\\'" "/Applications/Preview.app/Contents/MacOS/Preview" (file))))
 
 ;; set exec/man path from shell
 (exec-path-from-shell-initialize)
