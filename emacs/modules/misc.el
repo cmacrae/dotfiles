@@ -18,7 +18,7 @@
 
 ;; neotree
 (require 'neotree)
-(global-set-key [f5] 'neotree-toggle)
+(global-set-key (kbd "C-'") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
 ;; calendar/diary
