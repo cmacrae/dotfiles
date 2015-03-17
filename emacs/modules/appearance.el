@@ -12,6 +12,9 @@
 ;; clock
 (display-time-mode 1)
 
+;; highlight current line
+(global-hl-line-mode t)
+
 ;; moe-theme
 (require 'moe-theme)
 (require 'moe-theme-switcher)
