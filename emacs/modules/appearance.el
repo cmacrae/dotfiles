@@ -36,6 +36,7 @@
 
                 ;; file/buffer name
                 (:propertize mode-line-buffer-identification face 'mode-line-buffer-name)
+		" "
                 (:propertize mode-line-modified face 'mode-line-modified-face)
 		"  "
 		(vc-mode vc-mode)
