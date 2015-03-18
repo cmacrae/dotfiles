@@ -5,7 +5,8 @@
 ;; settings
 (ido-mode t)
 (winner-mode 1)
-(elscreen-start)
+;;(setq elscreen-display-tab nil)
+;;(elscreen-start)
 (projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
@@ -13,12 +14,11 @@
 (setq sauron-watch-nicks '("cmacrae"))
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
-(setq elscreen-display-tab nil)
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
 
 ;; neotree
 (require 'neotree)
-(global-set-key (kbd "C-'") 'neotree-toggle)
+(global-set-key (kbd "C-;") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
 ;; calendar/diary
