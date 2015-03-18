@@ -17,7 +17,7 @@
 		      go-mode markdown-mode json-mode yaml-mode
 		      projectile puppet-mode elfeed moe-theme
 		      haskell-mode shm rainbow-delimiters
-		      jinja2-mode ace-window sauron elscreen
+		      jinja2-mode ace-window sauron workgroups2
 		      multiple-cursors org-page helm helm-projectile
 		      openwith neotree)
   "Packages to ensure are installed upon launch.")

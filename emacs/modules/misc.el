@@ -5,8 +5,6 @@
 ;; settings
 (ido-mode t)
 (winner-mode 1)
-;;(setq elscreen-display-tab nil)
-;;(elscreen-start)
 (projectile-global-mode)
 (setq sane-term-shell-command "/bin/zsh")
 (setq vc-follow-symlinks t)
@@ -21,6 +19,11 @@
 (global-set-key (kbd "C-;") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
+;; workgroups2
+(require 'workgroups2)
+(setq wg-prefix-key (kbd "C-z"))
+(workgroups-mode 1)
+      
 ;; calendar/diary
 (setq calendar-week-start-day 1)
 (setq diary-file "~/org/diary")
