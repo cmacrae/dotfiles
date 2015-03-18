@@ -10,8 +10,9 @@
   (scroll-bar-mode -1))
 
 ;; clock
+(setq display-time-format "%H:%M %a %d %b ")
+(setq display-time-default-load-average nil)
 (display-time-mode 1)
-(setq display-time-format "%H:%M %a %d %b")
 
 ;; highlight current line
 (global-hl-line-mode t)
@@ -35,7 +36,7 @@
                              face 'mode-line-folder-face)
 
                 ;; file/buffer name
-                (:propertize mode-line-buffer-identification face 'mode-line-buffer-name)
+                (:propertize mode-line-buffer-identificatino face 'mode-line-buffer-name)
 		" "
                 (:propertize mode-line-modified face 'mode-line-modified-face)
 		"  "
