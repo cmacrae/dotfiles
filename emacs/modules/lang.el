@@ -1,4 +1,5 @@
 ;; haskell-mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook #'rainbow-delimiters-mode)
 (eval-after-load 'haskell-mode
