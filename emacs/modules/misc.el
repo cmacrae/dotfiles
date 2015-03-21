@@ -19,11 +19,6 @@
 (global-set-key (kbd "C-;") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
-;; workgroups2
-(require 'workgroups2)
-(setq wg-prefix-key (kbd "C-z"))
-(workgroups-mode 1)
-      
 ;; calendar/diary
 (setq calendar-week-start-day 1)
 (setq diary-file "~/org/diary")
