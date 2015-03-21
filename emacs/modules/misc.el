@@ -7,6 +7,7 @@
 (winner-mode 1)
 (projectile-global-mode)
 (setq vc-follow-symlinks t)
+(global-diff-hl-mode 1)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (setq sauron-watch-nicks '("cmacrae"))
 (setq sauron-separate-frame nil)
