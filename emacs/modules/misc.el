@@ -93,8 +93,10 @@
                                                              "haskell")
                                                             ((eq major-mode 'emacs-lisp-mode)
                                                              "elisp")
-                                                            ((eq major-mode 'shell)
-                                                             "shell")
+                                                            ((eq major-mode 'go-mode)
+                                                             "go")
+                                                            ((eq major-mode 'shell-mode)
+                                                             "bash")
                                                             (t
                                                              "")))
                                        ("channel" . "")
@@ -103,8 +105,9 @@
                                        ("email" . "")))
                              "&")))))
     (when (string-match "Location: /\\([0-9]+\\)" response)
-      (message "%S" (match-string 1 response))
-      (browse-url (concat "http://lpaste.net/"
+      (message (concat "lpasting: http://lpaste.net/"
+		       (match-string 1 response)))
+      (kill-new (concat "http://lpaste.net/"
                           (match-string 1 response))))))
 
 (provide 'lpaste)
