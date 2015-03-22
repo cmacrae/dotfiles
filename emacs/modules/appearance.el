@@ -3,6 +3,7 @@
 ;; -------------------------------------
 
 ;; hide stuff
+(blink-cursor-mode 0)
 (when window-system
   (tooltip-mode -1)
   (tool-bar-mode -1)
