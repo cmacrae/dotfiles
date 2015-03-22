@@ -41,7 +41,6 @@
               (quote
                ("   "
                 ;; mode
-                (:propertize global-mode-string 'face 'mode-line-mode-string)
 		(:propertize (:eval (shorten-directory default-directory 10))
 			     'face 'mode-line-folder-face)
 		(:propertize "%b"
@@ -55,4 +54,5 @@
                 (:propertize "%m" 'face 'mode-line-mode-name)
                 " :: "
                 ;; line number
-                "Line %l, %p")))
+                "Line %l, %p :: "
+	       (:propertize global-mode-string 'face 'mode-line-mode-string))))
