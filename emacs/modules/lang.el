@@ -1,10 +1,14 @@
 ;; haskell-mode
+(require 'company)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'haskell-mode-hook 'company-mode)
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 (let ((my-cabal-path (expand-file-name "~/library/Haskell/bin")))
