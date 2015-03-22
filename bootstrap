@@ -2,6 +2,7 @@
 
 DIR=~/code/git/dotfiles
 BASE_PKGS="git-base gnutls gsed ispell ispell-british mg nmap offlineimap tmux w3m-img"
+CABAL_PKGS="alex happy present hasktags stylish-haskell ghc-mod hlint hoogle structured-haskell-mode"
 
 save_osx() {
     while :
@@ -31,6 +32,26 @@ save_osx() {
 pkgs(){
     sudo pkgin -y in $BASE_PKGS
 }
+
+install_haskell(){
+    echo "Installing Haskell Platform..."
+    curl -sk -o /tmp/haskell_platform.pkg \
+         https://downloads.haskell.org/~platform/2014.2.0.0/Haskell%20Platform%202014.2.0.0%2064bit.signed.pkg	 
+    sudo installer -pkg /tmp/haskell_platform.pkg -target / && \
+	echo "Haskell Platform installed!" || \
+	    echo "There was a problem installing the Haskell Platform"
+}
+
+cabal_pkgs(){
+    echo "Installing packages from hackage..."
+    if [[ $(which cabal) == "/usr/bin/cabal" ]]; then
+	echo "Consider adding /Users/${LOGNAME}/library/Haskell/bin to the beginning of /etc/paths!"
+    fi
+    cabal update
+    cabal install cabal-install
+    /Users/${LOGNAME}/library/Haskell/bin/cabal install scientific
+    /Users/${LOGNAME}/library/Haskell/bin/cabal install $CABAL_PKGS
+    }
 
 osx_keybindings(){
     if [ ! -d ~/library/KeyBindings ]; then
@@ -115,6 +136,10 @@ main() {
 	osx_keybindings
     fi
 
+    if [ ! -f /usr/bin/ghci ]; then
+	install_haskell && cabal_pkgs
+    fi
+    
     symlinker
 }
 
