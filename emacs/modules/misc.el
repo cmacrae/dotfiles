@@ -9,6 +9,7 @@
 (setq vc-follow-symlinks t)
 (global-diff-hl-mode 1)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(setq lpaste-author "cmacrae")
 (setq sauron-watch-nicks '("cmacrae"))
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
@@ -61,6 +62,8 @@
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
 ;; custom functions
+
+;; sort-words
 (defun sort-words (reverse beg end)
   "Sort words in region alphabetically, in REVERSE if negative.
     Prefixed with negative \\[universal-argument], sorts in reverse.
@@ -71,3 +74,37 @@
     See `sort-regexp-fields'."
   (interactive "*P\nr")
   (sort-regexp-fields reverse "\\w+" "\\&" beg end))
+
+;; lpaste, borrowed from github.com/chrisdone
+(defun lpaste-region (beg end)
+  "Paste the region to lpaste.net."
+  (interactive "r")
+  (let ((response
+         (shell-command-to-string
+          (format "curl -D/dev/stdout \"http://lpaste.net/new?%s\""
+                  (mapconcat 'identity
+                             (mapcar (lambda (cons)
+                                       (concat (url-hexify-string (car cons))
+                                               "="
+                                               (url-hexify-string (cdr cons))))
+                                     `(("title" . ,(read-from-minibuffer "Title: "))
+                                       ("author" . ,lpaste-author)
+                                       ("language" . ,(cond ((eq major-mode 'haskell-mode)
+                                                             "haskell")
+                                                            ((eq major-mode 'emacs-lisp-mode)
+                                                             "elisp")
+                                                            ((eq major-mode 'shell)
+                                                             "shell")
+                                                            (t
+                                                             "")))
+                                       ("channel" . "")
+                                       ("paste" . ,(buffer-substring-no-properties beg end))
+                                       ("private" . "private")
+                                       ("email" . "")))
+                             "&")))))
+    (when (string-match "Location: /\\([0-9]+\\)" response)
+      (message "%S" (match-string 1 response))
+      (browse-url (concat "http://lpaste.net/"
+                          (match-string 1 response))))))
+
+(provide 'lpaste)
