@@ -5,6 +5,7 @@
 ;; mu4e
 (add-to-list 'load-path "/usr/pkg/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
+(setq mail-user-agent 'mu4e-user-agent)
 (setq mu4e-mu-binary "/usr/pkg/bin/mu")
 (setq mu4e-maildir "~/.mail/gmail")
 (setq mu4e-view-show-images t)
@@ -26,6 +27,24 @@
  (concat
   "Kind Regards,\n"
   "Calum MacRae\n"))
+
+;; Make the `gnus-dired-mail-buffers' function also work on
+;; message-mode derived modes, such as mu4e-compose-mode.
+;; Bound to C-c RET C-a
+(require 'gnus-dired)
+(defun gnus-dired-mail-buffers ()
+  "Return a list of active message buffers."
+  (let (buffers)
+    (save-current-buffer
+      (dolist (buffer (buffer-list t))
+	(set-buffer buffer)
+	(when (and (derived-mode-p 'message-mode)
+		(null message-sent-message-via))
+	  (push (buffer-name buffer) buffers))))
+    (nreverse buffers)))
+
+(setq gnus-dired-mail-mode 'mu4e-user-agent)
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 
 ;; smtpmail
 (require 'smtpmail)
