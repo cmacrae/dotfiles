@@ -9,6 +9,7 @@
 (add-hook 'haskell-mode-hook 'company-mode)
 (add-to-list 'company-backends 'company-ghc)
 (custom-set-variables '(company-ghc-show-info t))
+(setq haskell-process-show-debug-tips nil)
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 (let ((my-cabal-path (expand-file-name "~/library/Haskell/bin")))
