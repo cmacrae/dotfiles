@@ -17,6 +17,13 @@
 
 ;; highlight current line
 (global-hl-line-mode t)
+;; disable hl-line-mode for mu4e & jabber
+(make-variable-buffer-local 'global-hl-line-mode)
+(add-hook 'shell-mode-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'git-commit-mode-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'mu4e-main-mode-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'mu4e-view-mode-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'mu4e-headers-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
 ;; moe-theme
 (require 'moe-theme)
