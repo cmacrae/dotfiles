@@ -28,3 +28,7 @@
 (setq op/site-sub-title "/home/cmacrae")
 (setq op/personal-disqus-shortname "cmacrae")
 (setq op/personal-github-link "https://github.com/cmacrae")
+
+;; org-bulets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))

@@ -19,7 +19,7 @@
 		      haskell-mode shm rainbow-delimiters openwith
 		      jinja2-mode ace-window sauron diff-hl neotree
 		      multiple-cursors org-page helm helm-projectile
-		      company-ghc)
+		      company-ghc org-bullets)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
