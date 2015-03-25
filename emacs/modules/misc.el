@@ -108,7 +108,7 @@
       (message (concat "lpasting: http://lpaste.net/"
 		       (match-string 1 response)))
       (kill-new (concat "http://lpaste.net/"
-                          (match-string 1 response))))))
+			(match-string 1 response))))))
 
 (provide 'lpaste)
 
@@ -138,3 +138,20 @@ point reaches the beginning or end of the buffer, stop there."
 
 (global-set-key [remap move-beginning-of-line]
                 'prelude-move-beginning-of-line)
+
+;; M-< and M-> in dired navigate to top/bottom of file list
+(defun dired-back-to-top ()
+  (interactive)
+  (beginning-of-buffer)
+  (next-line 2))
+
+(define-key dired-mode-map
+  (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+
+(defun dired-jump-to-bottom ()
+  (interactive)
+  (end-of-buffer)
+  (next-line -1))
+
+(define-key dired-mode-map
+  (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
