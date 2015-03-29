@@ -6,6 +6,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
 (add-to-list 'company-backends 'company-ghc)
 (eval-after-load 'haskell-mode
