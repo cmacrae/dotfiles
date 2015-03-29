@@ -8,19 +8,18 @@
 (add-hook 'haskell-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
 (add-to-list 'company-backends 'company-ghc)
-(custom-set-variables '(company-ghc-show-info t))
-(setq haskell-process-show-debug-tips nil)
 (eval-after-load 'haskell-mode
   '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
 (let ((my-cabal-path (expand-file-name "~/library/Haskell/bin")))
   (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
   (add-to-list 'exec-path my-cabal-path))
-(custom-set-variables
-  '(haskell-process-suggest-remove-import-lines t)
-  '(haskell-process-auto-import-loaded-modules t)
-  '(haskell-process-type 'cabal-repl)
-  '(haskell-process-log t)
-  '(haskell-tags-on-save t))
+(setq haskell-process-suggest-remove-import-lines t
+      haskell-process-auto-import-loaded-modules t
+      haskell-process-type 'cabal-repl
+      haskell-process-show-debug-tips nil
+      haskell-process-log t
+      haskell-tags-on-save t
+      company-ghc-show-info t)
 (eval-after-load 'haskell-mode '(progn
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
