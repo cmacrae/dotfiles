@@ -50,6 +50,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq inhibit-startup-message t)
+(setq ring-bell-function 'ignore)
 
 ;; misc key-bindings
 (global-set-key (kbd "C-c m") 'magit-status)
