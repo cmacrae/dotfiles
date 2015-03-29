@@ -15,7 +15,7 @@
 
 (defvar my-packages '(erc-hl-nicks flycheck magit yasnippet ghc
 		      go-mode markdown-mode json-mode yaml-mode
-		      projectile puppet-mode elfeed moe-theme
+		      projectile puppet-mode elfeed darktooth-theme
 		      haskell-mode shm rainbow-delimiters openwith
 		      jinja2-mode ace-window sauron diff-hl neotree
 		      multiple-cursors org-page helm helm-projectile

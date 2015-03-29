@@ -25,10 +25,8 @@
 (add-hook 'mu4e-view-mode-hook (lambda () (setq global-hl-line-mode nil)))
 (add-hook 'mu4e-headers-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
-;; moe-theme
-(require 'moe-theme)
-(require 'moe-theme-switcher)
-(moe-theme-set-color 'green)
+;; theme
+(require 'darktooth-theme)
 
 ;; mode line
 (defun shorten-directory (dir max-length)
