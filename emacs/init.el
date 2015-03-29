@@ -13,7 +13,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(erc-hl-nicks flycheck magit ghc
+(defvar my-packages '(erc-hl-nicks flycheck magit ghc exec-path-from-shell
 		      go-mode markdown-mode json-mode yaml-mode
 		      projectile puppet-mode elfeed darktooth-theme
 		      haskell-mode shm rainbow-delimiters openwith
