@@ -26,7 +26,9 @@
 (add-hook 'mu4e-headers-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
 ;; theme
-(require 'darktooth-theme)
+(require 'moe-theme)
+(require 'moe-theme-switcher)
+(moe-theme-set-color 'blue)
 
 ;; mode line
 (defun shorten-directory (dir max-length)
