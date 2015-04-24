@@ -22,7 +22,8 @@
 ;; org-page
 (require 'org-page)
 (setq op/repository-directory "~/code/git/blog")
-(setq op/theme 'mdo)
+(setq op/theme-root-directory "~/documents/blog/themes")
+(setq op/theme 'cmacrae)
 (setq op/site-domain "http://cmacr.ae")
 (setq op/site-main-title "Calum MacRae")
 (setq op/site-sub-title "/home/cmacrae")
