@@ -39,6 +39,7 @@
 (require 'go-mode)
 (add-to-list 'exec-path "~/code/go/bin")
 (add-hook 'before-save-hook 'gofmt-before-save)
+(setenv "GOPATH" "/Users/cmacrae/code/go")
 
 ;; markdown-mode
 (add-hook 'markdown-mode-hook 'flyspell-mode)
