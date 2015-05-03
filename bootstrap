@@ -9,16 +9,16 @@ save_osx() {
     do
 	read -r -p "Quickstrap Save OS X? [y/n] " ANSWER
 	case $ANSWER in
-	    [yY][eE][sS]|[yY])
+	    [yY])
 		export SOSX=true
 		break
 		;;
-	    [nN][oO]|[nN])
+	    [nN])
 		exit 0
 		break
 		;;
 	    *)
-		echo "Please answer yes or no..."
+		echo "Please answer 'y' or 'n'..."
 	esac
     done
 
@@ -137,9 +137,20 @@ main() {
     fi
 
     if [ ! -f /usr/bin/ghci ]; then
-	install_haskell && cabal_pkgs
+	while :
+	do
+	    read -r -p "Would you like to install the Haskell Platform? [y/n] " ANSWER
+	    case $ANSWER in
+		[y]) install_haskell && cabal_pkgs
+		     break
+		     ;;
+		[n]) break
+		     ;;
+		*) echo "Please answer 'y' or 'n'..."
+	    esac
+	done
     fi
-    
+
     symlinker
 }
 
