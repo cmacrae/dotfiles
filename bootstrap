@@ -24,13 +24,13 @@ save_osx() {
 
     if [ ! -z $SOSX ]; then
 	curl -o /tmp/master.zip https://codeload.github.com/cmacrae/saveosx/zip/master
-	unzip -d /tmp/ /tmp/master.zip && cd /tmp/saveosx-master/scripts
-	bash quickstrap
+	unzip -d /tmp/ /tmp/master.zip && cd /tmp/saveosx-master
+	bash bootstrap
     fi
 }
 
 pkgs(){
-    sudo pkgin -y in $BASE_PKGS
+    sudo /usr/pkg/bin/pkgin -y in $BASE_PKGS
 }
 
 install_haskell(){
