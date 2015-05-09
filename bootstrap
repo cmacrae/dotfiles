@@ -112,11 +112,6 @@ symlinker() {
 	mkdir ~/org
     fi
 
-    # Set erc password
-    cp -f $DIR/emacs/irc.el ~/.emacs.d/modules/irc.el
-    echo "Please enter your ZNC server's password:"
-    read -s PASSWORD
-    /usr/pkg/bin/gsed -i "s/XXXX/${PASSWORD}/g" ~/.emacs.d/modules/irc.el
     echo "You're all set!"
 }
 
