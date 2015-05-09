@@ -20,6 +20,10 @@
 (global-set-key (kbd "C-;") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
+;; ansible-doc
+(eval-after-load 'yaml-mode
+  '(define-key yaml-mode-map (kbd "C-c h a") #'ansible-doc))
+
 ;; calendar/diary
 (setq calendar-week-start-day 1)
 (setq diary-file "~/org/diary")
