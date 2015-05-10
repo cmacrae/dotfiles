@@ -20,6 +20,9 @@
 (global-set-key (kbd "C-;") 'neotree-toggle)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
+;; magit
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; ansible-doc
 (eval-after-load 'yaml-mode
   '(define-key yaml-mode-map (kbd "C-c h a") #'ansible-doc))
