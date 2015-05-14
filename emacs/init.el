@@ -19,7 +19,7 @@
 		      haskell-mode shm rainbow-delimiters openwith
 		      jinja2-mode ace-window sauron diff-hl neotree
 		      multiple-cursors org-page helm helm-projectile
-		      company-ghc org-bullets ansible-doc)
+		      company-ghc org-bullets ansible-doc popwin)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -41,3 +41,17 @@
 (mapc 'load (directory-files vendor-dir nil "^[^#].*el$"))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (server-start)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (popwin yaml-mode shm sauron rainbow-delimiters puppet-mode org-page org-bullets openwith neotree multiple-cursors moe-theme markdown-mode magit json-mode jinja2-mode helm-projectile haskell-mode go-mode flycheck exec-path-from-shell erc-hl-nicks elfeed diff-hl company-ghc ansible-doc ace-window))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

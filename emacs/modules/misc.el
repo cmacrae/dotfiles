@@ -23,6 +23,32 @@
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
+(global-set-key (kbd "C-z") popwin:keymap)
+(push '(term-mode :position :top :height 16 :stick t) popwin:special-display-config)
+(push '(" *grep*" :height 30 :position bottom) popwin:special-display-config)
+
+
+(defun popwin-term:term ()
+  (interactive)
+  (popwin:display-buffer-1
+   (or (get-buffer "*terminal*")
+       (save-window-excursion
+         (call-interactively 'term)))
+   :default-config-keywords '(:position :top)))
+
+(provide 'popwin-term)
+(require 'popwin-term)
+(global-set-key (kbd "C-x t") 'popwin-term:term)
+
+
+;; kill term buffers upon exit
+(defadvice term-handle-exit
+  (after term-kill-buffer-on-exit activate)
+(kill-buffer))
+
 ;; ansible-doc
 (eval-after-load 'yaml-mode
   '(define-key yaml-mode-map (kbd "C-c h a") #'ansible-doc))
