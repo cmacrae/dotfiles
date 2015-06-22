@@ -24,6 +24,7 @@
 (add-hook 'mu4e-main-mode-hook (lambda () (setq global-hl-line-mode nil)))
 (add-hook 'mu4e-view-mode-hook (lambda () (setq global-hl-line-mode nil)))
 (add-hook 'mu4e-headers-mode-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'term-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
 ;; theme
 (require 'moe-theme)
