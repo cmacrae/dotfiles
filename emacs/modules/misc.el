@@ -14,6 +14,7 @@
 (setq sauron-separate-frame nil)
 (setq sauron-hide-mode-line t)
 (set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+(setq explicit-shell-file-name "/bin/zsh")
 
 ;; neotree
 (require 'neotree)
