@@ -14,7 +14,6 @@ save_osx() {
 		break
 		;;
 	    [nN])
-		exit 0
 		break
 		;;
 	    *)
@@ -23,14 +22,13 @@ save_osx() {
     done
 
     if [ ! -z $SOSX ]; then
-	curl -o /tmp/master.zip https://codeload.github.com/cmacrae/saveosx/zip/master
-	unzip -d /tmp/ /tmp/master.zip && cd /tmp/saveosx-master
-	bash bootstrap
+	curl -o /tmp/sosx_bootstrap https://raw.githubusercontent.com/cmacrae/saveosx/master/bootstrap
+	bash /tmp/sosx_bootstrap
     fi
 }
 
 pkgs(){
-    sudo /usr/pkg/bin/pkgin -y in $BASE_PKGS
+    sudo /opt/pkg/bin/pkgin -y in $BASE_PKGS
 }
 
 install_haskell(){
@@ -117,14 +115,9 @@ symlinker() {
 
 main() {
     cd $DIR
-    if [ ! -d /usr/pkg ]; then
+    if [ ! -d /opt/pkg ]; then
 	save_osx
 	pkgs
-    fi
-
-    if [ -f /usr/pkg/bin/git ] && [ -f /usr/bin/git ]; then
-	echo "Removing git dummy binaries"
-	sudo rm -rf /usr/bin/git*
     fi
 
     if [ ! -f ~/library/KeyBindings/DefaultKeyBinding.dict ]; then
