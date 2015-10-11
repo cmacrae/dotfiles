@@ -30,3 +30,6 @@ fi
 if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
+
+# Set PATH precedence in favour of /opt/pkg/{bin,sbin}
+export PATH=/opt/pkg/bin:/opt/pkg/sbin:/opt/pkg/gcc5/bin:$PATH
