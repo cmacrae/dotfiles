@@ -8,10 +8,15 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
+
+;; Ensure org always comes from Org ELPA
+(setq package-pinned-archives '())
+(add-to-list 'package-pinned-archives '(org-plus-contrib . "org"))
 
 (defvar my-packages '(erc-hl-nicks flycheck magit ghc exec-path-from-shell
 		      go-mode markdown-mode json-mode yaml-mode
@@ -19,7 +24,8 @@
 		      haskell-mode shm rainbow-delimiters openwith
 		      jinja2-mode ace-window sauron diff-hl neotree
 		      multiple-cursors org-page helm helm-projectile
-		      company-ghc org-bullets ansible-doc popwin)
+		      company-ghc org-bullets ansible-doc popwin
+		      org-plus-contrib)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
