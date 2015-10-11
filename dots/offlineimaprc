@@ -32,7 +32,7 @@ remoteuser = calum0macrae@gmail.com
 remotepasseval = get_keychain_pass(account="calum0macrae@gmail.com", server="imap.gmail.com")
 realdelete = no
 ssl = yes
-sslcacertfile = /usr/pkg/share/ncat/ca-bundle.crt
+sslcacertfile = /opt/pkg/share/ncat/ca-bundle.crt
 nametrans = lambda folder: {'Drafts':			'drafts',
                             '[Google Mail]/Sent Mail': 	'sent',
                             '[Google Mail]/Bin':	'trash',
