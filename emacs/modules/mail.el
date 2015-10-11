@@ -3,10 +3,10 @@
 ;; -------------------------------------
 
 ;; mu4e
-(add-to-list 'load-path "/usr/pkg/share/emacs/site-lisp/mu4e")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 (setq mail-user-agent 'mu4e-user-agent)
-(setq mu4e-mu-binary "/usr/pkg/bin/mu")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
 (setq mu4e-maildir "~/.mail/gmail")
 (setq mu4e-view-show-images t)
 (setq mu4e-html2text-command "w3m -dump -T text/html")
