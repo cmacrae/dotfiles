@@ -72,8 +72,8 @@
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-user "calum0macrae@gmail.com")
-(setq auth-sources (quote (macos-keychain-internet macos-keychain-generic)))
-(setq starttls-extra-arguments '("--x509cafile" "/usr/pkg/share/ncat/ca-bundle.crt"))
+;;(setq auth-sources (quote (macos-keychain-internet macos-keychain-generic)))
+(setq starttls-extra-arguments '("--x509cafile" "/opt/pkg/share/ncat/ca-bundle.crt"))
 
 ;; gpg
 (add-hook 'mu4e-compose-mode-hook 'epa-mail-mode)
