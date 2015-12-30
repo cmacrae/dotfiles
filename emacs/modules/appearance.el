@@ -27,9 +27,7 @@
 (add-hook 'term-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
 ;; theme
-(require 'moe-theme)
-(require 'moe-theme-switcher)
-(moe-theme-set-color 'blue)
+(load-theme 'sanityinc-tomorrow-night t)
 
 ;; mode line
 (defun shorten-directory (dir max-length)
