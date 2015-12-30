@@ -8,7 +8,7 @@ def get_keychain_pass(account=None, server=None):
         'user': getpass.getuser(),
         'account': account,
         'server': server,
-        'keychain': join(expanduser('~'), 'library/Keychains/login.keychain'),
+        'keychain': join(expanduser('~'), 'Library/Keychains/login.keychain'),
     }
     command = "sudo -u %(user)s %(security)s -v %(command)s -g -a %(account)s -s %(server)s %(keychain)s" % params
     output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
