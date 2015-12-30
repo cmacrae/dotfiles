@@ -43,29 +43,9 @@ symlinker() {
 	ln -sf $DIR/dots/$dot ~/.$dot
     done
 
-    if [ ! -d ~/.emacs.d ]; then
-	mkdir ~/.emacs.d
-    fi
-    ln -sf $DIR/emacs/init.el ~/.emacs.d/init.el
-    ln -sf -F $DIR/emacs/modules ~/.emacs.d
-
-    # emacs packages not available in repos
-    if [ ! -d ~/.emacs.d/vendor ]; then
-	mkdir ~/.emacs.d/vendor
-	# znc for erc
-	curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
-    fi
-
-    if [ ! -f ~/.emacs.d/custom.el ]; then
-	touch ~/.emacs.d/custom.el
-    fi
-
-    if [ ! -d ~/org ]; then
-	mkdir ~/org
-    fi
-
     echo "You're all set!"
 }
 
+osx_keybindings
 symlinker
 exit $?
