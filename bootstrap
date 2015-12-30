@@ -1,62 +1,12 @@
 #!/bin/sh
 
 DIR=~/code/git/dotfiles
-BASE_PKGS="git-base gnutls gsed ispell ispell-british mg nmap offlineimap tmux w3m-img"
-CABAL_PKGS="alex happy present hasktags stylish-haskell ghc-mod hlint hoogle structured-haskell-mode"
-
-save_osx() {
-    while :
-    do
-	read -r -p "Quickstrap Save OS X? [y/n] " ANSWER
-	case $ANSWER in
-	    [yY])
-		export SOSX=true
-		break
-		;;
-	    [nN])
-		break
-		;;
-	    *)
-		echo "Please answer 'y' or 'n'..."
-	esac
-    done
-
-    if [ ! -z $SOSX ]; then
-	curl -o /tmp/sosx_bootstrap https://raw.githubusercontent.com/cmacrae/saveosx/master/bootstrap
-	bash /tmp/sosx_bootstrap
-    fi
-}
-
-pkgs(){
-    sudo /opt/pkg/bin/pkgin -y in $BASE_PKGS
-}
-
-install_haskell(){
-    echo "Installing Haskell Platform..."
-    curl -sk -o /tmp/haskell_platform.pkg \
-         https://downloads.haskell.org/~platform/2014.2.0.0/Haskell%20Platform%202014.2.0.0%2064bit.signed.pkg	 
-    sudo installer -pkg /tmp/haskell_platform.pkg -target / && \
-	echo "Haskell Platform installed!" || \
-	    echo "There was a problem installing the Haskell Platform"
-}
-
-cabal_pkgs(){
-    echo "Installing packages from hackage..."
-    if [[ $(which cabal) == "/usr/bin/cabal" ]]; then
-	echo "Consider adding /Users/${LOGNAME}/library/Haskell/bin to the beginning of /etc/paths!"
-    fi
-    cabal update
-    cabal install cabal-install
-    /Users/${LOGNAME}/library/Haskell/bin/cabal install scientific
-    /Users/${LOGNAME}/library/Haskell/bin/cabal install $CABAL_PKGS
-    }
-
 osx_keybindings(){
-    if [ ! -d ~/library/KeyBindings ]; then
-	mkdir ~/library/KeyBindings
+    if [ ! -d ~/Library/KeyBindings ]; then
+	mkdir ~/Library/KeyBindings
     fi
 
-    cat > ~/library/KeyBindings/DefaultKeyBinding.dict <<EOF
+    cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
 {
   "^ " = setMark:;
   "^/" = undo:;
@@ -106,6 +56,10 @@ symlinker() {
 	curl -sk -o ~/.emacs.d/vendor/znc.el https://raw.githubusercontent.com/sshirokov/ZNC.el/master/znc.el
     fi
 
+    if [ ! -f ~/.emacs.d/custom.el ]; then
+	touch ~/.emacs.d/custom.el
+    fi
+
     if [ ! -d ~/org ]; then
 	mkdir ~/org
     fi
@@ -113,34 +67,5 @@ symlinker() {
     echo "You're all set!"
 }
 
-main() {
-    cd $DIR
-    if [ ! -d /opt/pkg ]; then
-	save_osx
-	pkgs
-    fi
-
-    if [ ! -f ~/library/KeyBindings/DefaultKeyBinding.dict ]; then
-	osx_keybindings
-    fi
-
-    if [ ! -f /usr/bin/ghci ]; then
-	while :
-	do
-	    read -r -p "Would you like to install the Haskell Platform? [y/n] " ANSWER
-	    case $ANSWER in
-		[y]) install_haskell && cabal_pkgs
-		     break
-		     ;;
-		[n]) break
-		     ;;
-		*) echo "Please answer 'y' or 'n'..."
-	    esac
-	done
-    fi
-
-    symlinker
-}
-
-main
+symlinker
 exit $?
