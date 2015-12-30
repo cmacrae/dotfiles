@@ -66,9 +66,7 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; file associations
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.j2\\'" . jinja2-mode))
+;; openwith
 (require 'openwith)
 (openwith-mode t)
 (setq openwith-associations '(("\\.avi\\'" "/Applications/mpv.app/Contents/MacOS/mpv" (file))
@@ -109,43 +107,6 @@
     See `sort-regexp-fields'."
   (interactive "*P\nr")
   (sort-regexp-fields reverse "\\w+" "\\&" beg end))
-
-;; lpaste, borrowed from github.com/chrisdone
-(defun lpaste-region (beg end)
-  "Paste the region to lpaste.net."
-  (interactive "r")
-  (let ((response
-         (shell-command-to-string
-          (format "curl -D/dev/stdout \"http://lpaste.net/new?%s\""
-                  (mapconcat 'identity
-                             (mapcar (lambda (cons)
-                                       (concat (url-hexify-string (car cons))
-                                               "="
-                                               (url-hexify-string (cdr cons))))
-                                     `(("title" . ,(read-from-minibuffer "Title: "))
-                                       ("author" . ,lpaste-author)
-                                       ("language" . ,(cond ((eq major-mode 'haskell-mode)
-                                                             "haskell")
-                                                            ((eq major-mode 'emacs-lisp-mode)
-                                                             "elisp")
-                                                            ((eq major-mode 'go-mode)
-                                                             "go")
-                                                            ((eq major-mode 'shell-mode)
-                                                             "bash")
-                                                            (t
-                                                             "")))
-                                       ("channel" . "")
-                                       ("paste" . ,(buffer-substring-no-properties beg end))
-                                       ("private" . "private")
-                                       ("email" . "")))
-                             "&")))))
-    (when (string-match "Location: /\\([0-9]+\\)" response)
-      (message (concat "lpasting: http://lpaste.net/"
-		       (match-string 1 response)))
-      (kill-new (concat "http://lpaste.net/"
-			(match-string 1 response))))))
-
-(provide 'lpaste)
 
 ;; sensible begining of line
 (defun prelude-move-beginning-of-line (arg)
