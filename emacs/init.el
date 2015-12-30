@@ -18,14 +18,12 @@
 (setq package-pinned-archives '())
 (add-to-list 'package-pinned-archives '(org-plus-contrib . "org"))
 
-(defvar my-packages '(erc-hl-nicks flycheck magit ghc exec-path-from-shell
+(defvar my-packages '(erc-hl-nicks flycheck magit exec-path-from-shell
 		      go-mode markdown-mode json-mode yaml-mode
-		      projectile puppet-mode elfeed moe-theme
-		      haskell-mode shm rainbow-delimiters openwith
+		      projectile elfeed rainbow-delimiters openwith
 		      jinja2-mode ace-window sauron diff-hl neotree
 		      multiple-cursors org-page helm helm-projectile
-		      company-ghc org-bullets ansible-doc popwin
-		      org-plus-contrib)
+		      org-bullets ansible-doc popwin smartparens)
   "Packages to ensure are installed upon launch.")
 (dolist (p my-packages)
   (when (not (package-installed-p p))
