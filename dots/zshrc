@@ -19,11 +19,13 @@ for file in $HOME/.zsh/rc/*.zsh; do
 done
 
 # Prompts
+if [[ ! -n ${INSIDE_EMACS} ]]; then
 export "PROMPT=
 %{$fg[blue]%}%m %{$fg[red]%}$ %{$reset_color%}"
-
-if [[ ! -n ${INSIDE_EMACS} ]]; then
-   export "RPROMPT=%{$fg[red]%}%~%f%b"
+export "RPROMPT=%{$fg[red]%}%~%f%b"
+else
+export "PROMPT=
+%{$fg[blue]%}%~ %{$fg[red]%}$ %f%b"
 fi
 
 # Evaluate system PATH
