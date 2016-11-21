@@ -48,11 +48,11 @@ symlinker() {
 
 getAntigen() {
     if [ ! -f dots/zsh/rc/antigen.zsh ]; then
-	curl https://cdn.rawgit.com/zsh-users/antigen/v1.2.2/bin/antigen.zsh > antigen.zsh
+	curl -s https://cdn.rawgit.com/zsh-users/antigen/v1.2.2/bin/antigen.zsh > ~/.zsh/rc/antigen.zsh
     fi
 }
 
 osx_keybindings
-getAntigen
 symlinker
+getAntigen
 exit $?
