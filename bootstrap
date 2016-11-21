@@ -34,14 +34,6 @@ EOF
     echo "OS X keybindings applied"
 }
 
-emacs_terminfo() {
-    EMACS_PATH=/Applications/Emacs.app
-    if [[ -d $EMACS_PATH ]]; then
-	echo "Installing Emacs terminfo"
-	tic -x $(find $EMACS_PATH -name '*.ti')
-    fi
-}
-
 symlinker() {
     echo "Symlinking dotfiles"
     for dot in $(ls dots) ; do
@@ -54,7 +46,13 @@ symlinker() {
     echo "You're all set!"
 }
 
+getAntigen() {
+    if [ ! -f dots/zsh/rc/antigen.zsh ]; then
+	curl https://cdn.rawgit.com/zsh-users/antigen/v1.2.2/bin/antigen.zsh > antigen.zsh
+    fi
+}
+
 osx_keybindings
-emacs_terminfo
+getAntigen
 symlinker
 exit $?
