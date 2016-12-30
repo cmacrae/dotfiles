@@ -2,73 +2,73 @@
 # bspwm hotkeys
 #
 
-mod2 + alt + Escape
-    bspc quit
+super + alt + Escape
+    pkill panel ; bspc quit
 
-mod2 + q
-    bspc window -c
+super + q
+    bspc node -c
 
-mod2 + t
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + m
     bspc desktop -l next
 
-mod2 + b
-    bspc desktop -B
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
 
-mod2 + {s,f}
-    bspc window -t {floating,fullscreen}
-
-mod2 + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
-
-mod2 + bracket{left,right}
+super + bracket{left,right}
     bspc desktop -f {prev,next}
 
-mod2 + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
 
-mod2 + ctrl + {_,shift + }space
-    bspc {window -p cancel,desktop -c}
+super + ctrl + {_,shift + }space
+    bspc {node -p cancel,desktop -c}
 
-mod2 + alt + {h,j,k,l}
-    bspc window -e {left -10,down +10,up -10,right +10}
+# expand the tiled space in the given direction
+super + alt + {h,j,k,l}
+    bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
-mod2 + alt + shift + {h,j,k,l}
-    bspc window -e {right -10,up +10,down -10,left +10}
+# contract the tiled space in the given direction
+super + alt + shift + {h,j,k,l}
+    bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
-mod2 + ctrl + {1-9}
-    bspc window -r 0.{1-9}
+# move a floating window
+super + {Left,Down,Up,Right}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
 
-mod2 + {_,shift + }{1,2,3,4,5,6}
-    bspc {desktop -f,window -d} {One,Two,Three,Four,Five,Six}
+super + ctrl + {1-9}
+    bspc node -r 0.{1-9}
 
-~button1
-    bspc pointer -g focus
+super + {_,shift + }{1,2,3,4}
+    bspc {desktop -f,node -d} {One,Two,Three,Four}
 
-mod2 + button{1-3}
-    bspc pointer -g {move,resize_side,resize_corner}
-
-mod2 + !button{1-3}
-    bspc pointer -t %i %i
-
-mod2 + @button{1-3}
-    bspc pointer -u
+super + {_,shift +}{Tab}
+    bspc {node,desktop} -f last
 
 #
 # wm independent hotkeys
 #
 
-mod2 + Return
+XF86Audio{Raise,Lower}Volume
+    amixer -q sset Master {1+,1-} unmute
+
+XF86AudioMute
+    amixer -q sset Master toggle
+
+XF86MonBrightness{Up,Down}
+    xbacklight -{inc,dec} 10
+
+super + Return
     urxvtc
 
-mod2 + r
+super + p
     dmenu_run -b
 
-mod2 + d
-    open -a safari
-
-mod2 + e
-    urxvtc -e ranger
+super + d
+    chromium
 
 # Reload sxhkd config
-mod2 + shift + Escape
+super + shift + Escape
     pkill -USR1 -x sxhkd

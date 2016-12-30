@@ -1,1 +1,4 @@
 dots/zsh/rc/antigen.zsh
+!dots/config/bspwm
+!dots/config/sxhkd
+dots/config/*

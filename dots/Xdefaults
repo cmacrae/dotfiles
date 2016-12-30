@@ -23,8 +23,8 @@ URxvt*perl-lib:             /usr/pkg/lib/urxvt/perl/
 URxvt*perl-ext-common:      default,clipboard
 URxvt*keysym.M-c:           perl:clipboard:copy
 URxvt*keysym.M-v:           perl:clipboard:paste
-URxvt*clipboard.copycmd:    pbcopy
-URxvt*clipboard.pastecmd:   pbpaste
+URxvt*clipboard.copycmd:    xclip -i -selection clipboard
+URxvt*clipboard.pastecmd:   xclip -o -selection clipboard
 URxvt*keysym.M-u:           perl:url-select:select_next
 Urxvt-url-select.launcher:  open -a safari
 URxvt*url-select.underline: true
@@ -44,8 +44,8 @@ URxvt*cursorColor: 	#F2C2CA
 URxvt*scrollBar:	false
 URxvt*termName: rxvt-256color
 
-URxvt*font: xft:Inconsolata:pixelsize=14
-URxvt*boldFont: xft:Inconsolata:pixelsize=14
+URxvt*font: xft:Inconsolata:pixelsize=13
+URxvt*boldFont: xft:Inconsolata:pixelsize=13
 
 
 !--------------!

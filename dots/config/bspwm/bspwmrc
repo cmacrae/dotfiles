@@ -1,21 +1,16 @@
 #! /bin/sh
 
-DESKS='One Two Three Four Five'
-
-bspc desktop Desktop1 -n One
-bspc desktop One -l monocle
 bspc monitor -d One Two Three Four
 
-bspc config wm_name       "bspwm"
 bspc config border_width  5
 bspc config window_gap    5
 
-bspc config focused_border_color         '#3b484a'
-bspc config active_border_color          '#332d29'
-bspc config presel_border_color          '#CFE5A7'
-bspc config normal_locked_border_color   '#A2DCC3'
-bspc config focused_locked_border_color  '#CFE5A7'
-bspc config active_locked_border_color   '#FB7AA1'
+#bspc config focused_border_color         '#3b484a'
+#bspc config active_border_color          '#332d29'
+#bspc config presel_border_color          '#CFE5A7'
+#bspc config normal_locked_border_color   '#A2DCC3'
+#bspc config focused_locked_border_color  '#CFE5A7'
+#bspc config active_locked_border_color   '#FB7AA1'
 
 bspc config borderless_monocle     true
 bspc config gapless_monocle        true
@@ -25,7 +20,4 @@ bspc config adaptative_raise       true
 bspc config apply_shadow_property  true
 bspc config auto_cancel            true
 
-bspc config top_padding -22
-
-bspc rule -a MPlayer desktop=Three floating=on focus=on follow=on
-urxvtc &
+/opt/bar/bin/panel &
