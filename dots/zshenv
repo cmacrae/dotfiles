@@ -1,6 +1,5 @@
 export GOPATH=$HOME/code/go
 export GOWORKSPACE=$GOPATH/src/github.com/cmacrae
-export HOME=/Users/cmacrae
 EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
 PAGER=less
 CVSROOT=~/code/pkgsrc

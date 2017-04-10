@@ -52,10 +52,12 @@ super + {_,shift +}{Tab}
 #
 
 XF86Audio{Raise,Lower}Volume
-    amixer -q sset Master {1+,1-} unmute
+    /opt/bar/bin/volume {+,-} ; \
+    /opt/bar/bin/popup "volume: "$(/opt/bar/bin/volume level)
 
 XF86AudioMute
-    amixer -q sset Master toggle
+    /opt/bar/bin/volume ! ; \
+    /opt/bar/bin/popup "volume: " $(/opt/bar/bin/volume state)
 
 XF86MonBrightness{Up,Down}
     xbacklight -{inc,dec} 10
@@ -64,7 +66,7 @@ super + Return
     urxvtc
 
 super + p
-    dmenu_run -b
+    rofi -show run
 
 super + d
     chromium

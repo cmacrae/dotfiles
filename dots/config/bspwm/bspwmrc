@@ -15,9 +15,8 @@ bspc config window_gap    5
 bspc config borderless_monocle     true
 bspc config gapless_monocle        true
 bspc config focus_follows_pointer  true
-bspc config focus_follows_monitor  true
 bspc config adaptative_raise       true
 bspc config apply_shadow_property  true
 bspc config auto_cancel            true
 
-/opt/bar/bin/panel &
+polybar cmacrae & bspc config top_padding 3
