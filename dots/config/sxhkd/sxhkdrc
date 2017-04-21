@@ -3,7 +3,7 @@
 #
 
 super + alt + Escape
-    pkill panel ; bspc quit
+    pkill polybar ; bspc quit
 
 super + q
     bspc node -c
@@ -41,8 +41,8 @@ super + {Left,Down,Up,Right}
 super + ctrl + {1-9}
     bspc node -r 0.{1-9}
 
-super + {_,shift + }{1,2,3,4}
-    bspc {desktop -f,node -d} {One,Two,Three,Four}
+super + {_,shift + }{1,2,3,4,5,6,7,8}
+    bspc {desktop -f,node -d} {1,2,3,4,5,6,7,8}
 
 super + {_,shift +}{Tab}
     bspc {node,desktop} -f last
@@ -63,7 +63,10 @@ XF86MonBrightness{Up,Down}
     xbacklight -{inc,dec} 10
 
 super + Return
-    urxvtc
+    st
+
+super + e
+    emacsclient --create-frame
 
 super + p
     rofi -show run
