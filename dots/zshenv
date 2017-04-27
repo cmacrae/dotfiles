@@ -1,15 +1,17 @@
 export GOPATH=$HOME/code/go
 export GOWORKSPACE=$GOPATH/src/github.com/cmacrae
-EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
-PAGER=less
-CVSROOT=~/code/pkgsrc
-CVSEDITOR=emacs
-CVS_RSH=ssh
+export PAGER=less
 
 # Evaluate system PATH
 if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
-# Set PATH precedence in favour of /opt/pkg & add Go binaries
-export PATH=/opt/pkg/bin:/opt/pkg/sbin:/opt/pkg/gcc5/bin:$PATH:$GOPATH/bin
+# Set PATH precedence in favour of /opt/pkg (on macOS) & add Go binaries
+if [[ $(uname -s) == "Darwin" ]]; then
+    export PATH=/opt/pkg/bin:/opt/pkg/sbin:/opt/pkg/gcc5/bin:$PATH:$GOPATH/bin
+    export EDITOR=/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient
+else
+    export PATH=$PATH:$GOPATH/bin
+    export EDITOR=emacsclient
+fi

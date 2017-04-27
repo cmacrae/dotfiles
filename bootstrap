@@ -52,7 +52,10 @@ getAntigen() {
     fi
 }
 
-osx_keybindings
+if [[ $(uname -s) == "Darwin" ]]; then
+    osx_keybindings
+fi
+
 symlinker
 getAntigen
 exit $?
