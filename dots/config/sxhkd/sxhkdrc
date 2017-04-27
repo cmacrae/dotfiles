@@ -52,18 +52,19 @@ super + {_,shift +}{Tab}
 #
 
 XF86Audio{Raise,Lower}Volume
-    /opt/bar/bin/volume {+,-} ; \
-    /opt/bar/bin/popup "volume: "$(/opt/bar/bin/volume level)
+    amixer -q set Master 5{+,-} unmute
 
 XF86AudioMute
-    /opt/bar/bin/volume ! ; \
-    /opt/bar/bin/popup "volume: " $(/opt/bar/bin/volume state)
+    amixer -q set Master toggle
 
 XF86MonBrightness{Up,Down}
     xbacklight -{inc,dec} 10
 
+XF86Audio{Play,Next,Prev}
+    mpc -q {toggle,next,prev}
+
 super + Return
-    st
+    st -f "Liberation Mono:size=8"
 
 super + e
     emacsclient --create-frame
@@ -73,6 +74,9 @@ super + p
 
 super + d
     chromium
+
+super + XF86PowerOff
+    slock
 
 # Reload sxhkd config
 super + shift + Escape
