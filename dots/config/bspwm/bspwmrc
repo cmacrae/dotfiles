@@ -1,14 +1,14 @@
 #! /bin/sh
 
-bspc monitor -d 1 2 3 4
+# Monitor/Workspaces
+bspc monitor eDP1 -d 1 2 3 4
 
-bspc config border_width  5
-bspc config window_gap    5
-
+# Property config
+bspc config border_width          5
+bspc config window_gap            5
 bspc config normal_border_color   '#80ACAD'
 bspc config focused_border_color  '#F05A28'
 bspc config presel_feedback_color '#9CD6D7'
-
 bspc config borderless_monocle     true
 bspc config gapless_monocle        true
 bspc config focus_follows_pointer  true
@@ -17,4 +17,6 @@ bspc config apply_shadow_property  true
 bspc config auto_cancel            true
 
 xsetroot -cursor_name left_ptr
-polybar cmacrae &
+feh --bg-scale ~/Pictures/wallpapers/dunes.jpg
+MONITOR=eDP1 polybar cmacrae &
+eval `keychain --eval --quiet --agents ssh id_rsa`
