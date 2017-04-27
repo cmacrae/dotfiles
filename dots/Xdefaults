@@ -69,13 +69,12 @@ rofi.separator-style:                dash
 ! Xft Settings !
 !--------------!
 
-!Xft.dpi: 		    96
-!Xft.antialias: 	false	
-!Xft.rgba: 		  rgb
-!Xft.autohint: 	false
-!Xft.hinting: 		true
-!Xft.hintstyle: 	hintslight
-!Xft.lcdfilter: 	lcddefault
+Xft.dpi: 180
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
 
 !!===========!!
 !!  Colours  !!
